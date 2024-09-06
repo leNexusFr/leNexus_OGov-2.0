@@ -23,7 +23,7 @@ services:
     container_name: opengov--container
     volumes:
       - ./vol:/app/data/logs  
-#    restart: always
+    restart: always
     depends_on:
       - db
     command: >

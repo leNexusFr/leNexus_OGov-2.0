@@ -15,8 +15,6 @@ COPY . .
 
 WORKDIR /app/bot
 
-RUN touch /app/data/logs/governance_bot.log
-
 # Exposer le port sur lequel l'application s'exécute
 EXPOSE 8080
 

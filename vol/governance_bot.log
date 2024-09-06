@@ -96,3 +96,119 @@
 2024-09-06 23:42:21,474 [INFO] Creating thread on Discord: #1077 Proposal to use $DED to Conduct Targeted Marketing during KBW 2024
 2024-09-06 23:42:21,691 [INFO] Thread created: 1281761441287766148
 2024-09-06 23:42:25,529 [INFO] Vote results message added instruction message added for 1077
+2024-09-06 23:42:42,003 [INFO] Initializing SubstrateAPI
+2024-09-06 23:42:46,890 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1078&proposalType=referendums_v2
+2024-09-06 23:42:46,890 [INFO] Creating thread on Discord: #1078 [Polkadot Community Foundation] Polkadot at Slush 2024
+2024-09-06 23:42:47,238 [INFO] Thread created: 1281761547970023445
+2024-09-06 23:42:50,633 [INFO] Vote results message added instruction message added for 1078
+2024-09-06 23:43:08,432 [INFO] Initializing SubstrateAPI
+2024-09-06 23:43:12,701 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1083&proposalType=referendums_v2
+2024-09-06 23:43:12,701 [INFO] Creating thread on Discord: #1083 [Medium Spender] Open-source KYT on Dot #1083
+2024-09-06 23:43:13,055 [INFO] Thread created: 1281761656065622117
+2024-09-06 23:43:17,045 [INFO] Vote results message added instruction message added for 1083
+2024-09-06 23:43:35,896 [INFO] Initializing SubstrateAPI
+2024-09-06 23:43:41,423 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1085&proposalType=referendums_v2
+2024-09-06 23:43:41,424 [INFO] Creating thread on Discord: #1085 The Modern Market Show Headline Sponsorship - 6 Months
+2024-09-06 23:43:41,627 [INFO] Thread created: 1281761776588947558
+2024-09-06 23:43:45,157 [INFO] Vote results message added instruction message added for 1085
+2024-09-06 23:44:02,802 [INFO] Initializing SubstrateAPI
+2024-09-06 23:44:08,008 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1086&proposalType=referendums_v2
+2024-09-06 23:44:08,009 [INFO] Creating thread on Discord: #1086 Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9/5/24
+2024-09-06 23:44:08,411 [INFO] Thread created: 1281761887993724960
+2024-09-06 23:44:12,042 [INFO] Vote results message added instruction message added for 1086
+2024-09-06 23:44:26,877 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
+    addrinfo_list = socket.getaddrinfo(
+  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/bot/utils/subquery.py", line 25, in _connect
+    return SubstrateInterface(
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
+    self.connect_websocket()
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
+    self.websocket = create_connection(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
+    websock.connect(url, **options)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
+    self.sock, addrs = connect(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
+    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
+    raise WebSocketAddressException(e)
+websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
+2024-09-06 23:44:26,882 [ERROR] An error occurred: [Errno -5] No address associated with hostname
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
+    addrinfo_list = socket.getaddrinfo(
+  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/bot/main.py", line 207, in check_governance
+    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
+  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
+    valid_address = await self.substrate.check_ss58_address(address=value)
+  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
+    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
+  File "/app/bot/utils/subquery.py", line 25, in _connect
+    return SubstrateInterface(
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
+    self.connect_websocket()
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
+    self.websocket = create_connection(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
+    websock.connect(url, **options)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
+    self.sock, addrs = connect(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
+    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
+    raise WebSocketAddressException(e)
+websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
+2024-09-06 23:44:26,883 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1087&proposalType=referendums_v2
+2024-09-06 23:44:26,883 [INFO] Creating thread on Discord: #1087 Vote NAY
+2024-09-06 23:44:27,098 [INFO] Thread created: 1281761967354413067
+2024-09-06 23:44:30,702 [INFO] Vote results message added instruction message added for 1087
+2024-09-06 23:44:49,160 [INFO] Initializing SubstrateAPI
+2024-09-06 23:44:53,151 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1089&proposalType=referendums_v2
+2024-09-06 23:44:53,151 [INFO] Creating thread on Discord: #1089 Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development and Future
+2024-09-06 23:44:53,382 [INFO] Thread created: 1281762077152903282
+2024-09-06 23:44:57,543 [INFO] Vote results message added instruction message added for 1089
+2024-09-06 23:45:18,428 [INFO] Initializing SubstrateAPI
+2024-09-06 23:45:22,569 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1090&proposalType=referendums_v2
+2024-09-06 23:45:22,569 [INFO] Creating thread on Discord: #1090 B2B Marketing & Sales Enablement For The Polkadot Ecosystem
+2024-09-06 23:45:22,848 [INFO] Thread created: 1281762201039802441
+2024-09-06 23:45:26,441 [INFO] Vote results message added instruction message added for 1090
+2024-09-06 23:45:45,670 [INFO] Initializing SubstrateAPI
+2024-09-06 23:45:52,175 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1092&proposalType=referendums_v2
+2024-09-06 23:45:52,175 [INFO] Creating thread on Discord: #1092 POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
+2024-09-06 23:45:52,398 [INFO] Thread created: 1281762325048594472
+2024-09-06 23:45:55,929 [INFO] Vote results message added instruction message added for 1092
+2024-09-06 23:46:16,176 [INFO] Initializing SubstrateAPI
+2024-09-06 23:46:16,180 [INFO] Initializing SubstrateAPI
+2024-09-06 23:46:16,187 [INFO] ../data/archived_votes.json missing... creating file
+2024-09-06 23:46:16,187 [INFO] ../data/governance.cache missing... creating file
+2024-09-06 23:46:16,187 [INFO] ../data/onchain-votes.json missing... creating file
+2024-09-06 23:46:16,187 [INFO] ../data/vote_counts.json missing... creating file
+2024-09-06 23:46:16,188 [INFO] logging in using static token
+2024-09-06 23:46:17,225 [INFO] Shard ID None has connected to Gateway (Session ID: a7900e61596786473cddb7378fe4b877).
+2024-09-06 23:46:19,234 [INFO] Starting stopped tasks
+2024-09-06 23:46:19,235 [INFO] Task successfully started
+2024-09-06 23:46:19,235 [INFO] Checking for new proposals
+2024-09-06 23:46:19,235 [INFO] Initializing SubstrateAPI
+2024-09-06 23:46:45,596 [INFO] Checking active proposals from polkadot against vote_counts.json to archive threads where the proposal is no longer active
+2024-09-06 23:46:50,971 [INFO] No threads to lock
+2024-09-06 23:46:50,971 [INFO] 50 new proposal(s) found
+2024-09-06 23:46:56,669 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1074&proposalType=referendums_v2
+2024-09-06 23:46:56,670 [INFO] Creating thread on Discord: #1074 Changes to PAL Security Bounty
+2024-09-06 23:46:56,975 [INFO] Thread created: 1281762595799306383
+2024-09-06 23:47:00,699 [INFO] Vote results message added instruction message added for 1074
