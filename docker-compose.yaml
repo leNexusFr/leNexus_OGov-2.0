@@ -1,6 +1,5 @@
 # Use postgres/example user/password credentials
 version: '3.1'
-
 services:
 
   db:
@@ -15,6 +14,54 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
-      
+    container_name: opengov-postgres-container
+
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: opengov--container
+    volumes:
+      - ./vol:/app/data/logs  
+#    restart: always
+    depends_on:
+      - db
+    command: >
+      bash -c "ls -la /app && python main.py"
+    environment:
+      DISCORD_API_KEY: ${DISCORD_API_KEY}  
+      DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}
+      DISCORD_FORUM_CHANNEL_ID: ${DISCORD_FORUM_CHANNEL_ID}
+      DISCORD_SUMMARIZER_CHANNEL_ID: ${DISCORD_SUMMARIZER_CHANNEL_ID}
+      DISCORD_SUMMARY_ROLE: ${DISCORD_SUMMARY_ROLE}
+      DISCORD_VOTER_ROLE: ${DISCORD_VOTER_ROLE}
+      DISCORD_ADMIN_ROLE: ${DISCORD_ADMIN_ROLE}
+      DISCORD_TITLE_MAX_LENGTH: ${DISCORD_TITLE_MAX_LENGTH}
+      DISCORD_BODY_MAX_LENGTH: ${DISCORD_BODY_MAX_LENGTH}
+      DISCORD_NOTIFY_ROLE: ${DISCORD_NOTIFY_ROLE}
+      DISCORD_EXTRINSIC_ROLE: ${DISCORD_EXTRINSIC_ROLE}
+      DISCORD_ANONYMOUS_MODE: ${DISCORD_ANONYMOUS_MODE}
+      NETWORK_NAME: ${NETWORK_NAME}
+      SYMBOL: ${SYMBOL}
+      TOKEN_DECIMAL: ${TOKEN_DECIMAL}
+      SUBSTRATE_WSS: ${SUBSTRATE_WSS}
+      PEOPLE_WSS: ${PEOPLE_WSS}
+      SOLO_MODE: ${SOLO_MODE}
+      PROXIED_ADDRESS: ${PROXIED_ADDRESS}
+      PROXY_ADDRESS: ${PROXY_ADDRESS}
+      CONVICTION: ${CONVICTION}
+      DISCORD_PROXY_BALANCE_ALERT: ${DISCORD_PROXY_BALANCE_ALERT}
+      PROXY_BALANCE_ALERT: ${PROXY_BALANCE_ALERT}
+      MNEMONIC: ${MNEMONIC}
+      MIN_PARTICIPATION: ${MIN_PARTICIPATION}
+      VOTE_WITH_BALANCE: ${VOTE_WITH_BALANCE}
+
 volumes:
   postgres_data:
+
+
+
+
+
+
+
