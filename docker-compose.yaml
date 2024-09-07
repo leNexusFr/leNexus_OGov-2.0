@@ -21,8 +21,8 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: opengov--container
-    volumes:
-      - ./vol:/app/data/logs  
+#    volumes:
+#      - ./vol:/app/data/
     restart: always
     depends_on:
       - db
