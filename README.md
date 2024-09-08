@@ -73,6 +73,8 @@ When the bot votes is dictated by `/data/vote_periods`. Each origin of a proposa
 | SmallSpender       | 14                     | 5                           | 10                   |
 | MediumSpender      | 14                     | 5                           | 10                   |
 | BigSpender         | 14                     | 5                           | 10                   |
+| WishForChange      | 14                     | 5                           | 10                   |
+
 > Example:
 > > A proposal is submitted with its origin designated as 'Treasurer'. Following a period of five days after its on-chain introduction, a vote is conducted in accordance with the predetermined internal outcome. Should there be a shift in the voting stance from 'AYE' to 'NAY', a subsequent vote will be executed on the tenth day of the proposal's on-chain presence. In instances where the initial decision remains unaltered and the proposal has aged ten days or more, no further on-chain voting action will be undertaken.
 
@@ -96,6 +98,8 @@ When the bot votes is dictated by `/data/vote_periods`. Each origin of a proposa
 | SmallSpender       | 28                     | 7                           | 20                   |
 | MediumSpender      | 28                     | 7                           | 20                   |
 | BigSpender         | 28                     | 7                           | 20                   |
+| WishForChange      | 28                     | 7                           | 20                   |
+
 > Example:
 > > A proposal is submitted with its origin designated as 'AuctionAdmin'. Following a period of seven days after its on-chain introduction, a vote is conducted in accordance with the predetermined internal outcome. Should there be a shift in the voting stance from 'AYE' to 'NAY', a subsequent vote will be executed on the twentieth day of the proposal's on-chain presence. In instances where the initial decision remains unaltered and the proposal has aged ten days or more, no further on-chain voting action will be undertaken.
 
