@@ -1,7 +1,7 @@
 {
   "Root": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "WhitelistedCaller": {
@@ -11,32 +11,32 @@
   },
   "StakingAdmin": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "Treasurer": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "LeaseAdmin": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "FellowshipAdmin": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "GeneralAdmin": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "AuctionAdmin": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "ReferendumCanceller": {
@@ -61,22 +61,22 @@
   },
   "SmallSpender": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "MediumSpender": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "BigSpender": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   },
   "WishForChange": {
     "decision_period": 28,
-    "internal_vote_period": 2,
+    "internal_vote_period": 7,
     "revote_period": 20
   }
 }

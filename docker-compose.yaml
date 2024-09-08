@@ -21,13 +21,13 @@ services:
       context: .
       dockerfile: Dockerfile
     container_name: opengov--container
-#    volumes:
-#      - ./vol:/app/data/
+    volumes:
+      - ./vol:/app/data/
     restart: always
     depends_on:
       - db
-    command: >
-      bash -c "ls -la /app && python main.py"
+#    command: >
+#      bash -c "ls -la /app && python main.py"
     environment:
       DISCORD_API_KEY: ${DISCORD_API_KEY}  
       DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}

@@ -1,7 +1,15 @@
 # Utiliser une image de base Python officielle
 FROM python:3.9-slim
 
-RUN apt-get update -y && apt-get upgrade -y
+RUN apt-get update -y && apt-get upgrade -y && \
+    apt-get install -y curl gnupg
+
+# Installer Node.js et npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install -y nodejs
+
+# Installer PM2 globalement
+RUN npm install pm2 -g	
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
@@ -19,4 +27,4 @@ WORKDIR /app/bot
 EXPOSE 8080
 
 # Commande pour exécuter l'application
-#CMD ["python", "main.py"]
+CMD ["pm2-runtime", "start", "main.py", "--interpreter", "python3"]
