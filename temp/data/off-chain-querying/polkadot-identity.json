@@ -36203,6 +36203,48 @@
         },
         null
     ],
+    "1sN5Grxnyp6XaAjhw7rse9ykd8obAAGHXBpmXAUksQ8cZDZ": [
+        {
+            "judgements": [
+                [
+                    3,
+                    "Reasonable"
+                ]
+            ],
+            "deposit": 2005600000,
+            "info": {
+                "display": {
+                    "Raw": "DotHacks"
+                },
+                "legal": {
+                    "None": null
+                },
+                "web": {
+                    "None": null
+                },
+                "matrix": {
+                    "None": null
+                },
+                "email": {
+                    "Raw": "dothacks.js@gmail.com"
+                },
+                "pgp_fingerprint": null,
+                "image": {
+                    "None": null
+                },
+                "twitter": {
+                    "None": null
+                },
+                "github": {
+                    "None": null
+                },
+                "discord": {
+                    "None": null
+                }
+            }
+        },
+        null
+    ],
     "14ree4Eo3pq4jyVcuvdB3BYyxyYUN4vDRLDz4a2vefC38hEx": [
         {
             "judgements": [],

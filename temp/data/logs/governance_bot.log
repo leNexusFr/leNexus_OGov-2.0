@@ -1,524 +1,344 @@
-2024-09-08 16:31:01,514 [INFO] Initializing SubstrateAPI
-2024-09-08 16:31:01,519 [INFO] Initializing SubstrateAPI
-2024-09-08 16:31:01,527 [INFO] ../data/archived_votes.json missing... creating file
-2024-09-08 16:31:01,527 [INFO] ../data/governance.cache missing... creating file
-2024-09-08 16:31:01,528 [INFO] ../data/onchain-votes.json missing... creating file
-2024-09-08 16:31:01,528 [INFO] ../data/vote_counts.json missing... creating file
-2024-09-08 16:31:01,528 [INFO] logging in using static token
-2024-09-08 16:31:02,858 [INFO] Shard ID None has connected to Gateway (Session ID: e3aae34dd4e6859f0428b555cade3f07).
-2024-09-08 16:31:04,866 [INFO] Starting stopped tasks
-2024-09-08 16:31:04,866 [INFO] Task successfully started
-2024-09-08 16:31:04,867 [INFO] Checking for new proposals
-2024-09-08 16:31:04,867 [INFO] Initializing SubstrateAPI
-2024-09-08 16:31:30,461 [INFO] Checking active proposals from polkadot against vote_counts.json to archive threads where the proposal is no longer active
-2024-09-08 16:31:34,717 [INFO] No threads to lock
-2024-09-08 16:31:34,717 [INFO] 47 new proposal(s) found
-2024-09-08 16:31:39,514 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1074&proposalType=referendums_v2
-2024-09-08 16:31:39,514 [INFO] Creating thread on Discord: #1074 Changes to PAL Security Bounty
-2024-09-08 16:31:39,861 [INFO] Thread created: 1282377828217651241
-2024-09-08 16:31:43,863 [INFO] Vote results message added instruction message added for 1074
-2024-09-08 16:32:04,034 [INFO] Initializing SubstrateAPI
-2024-09-08 16:32:12,345 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1083&proposalType=referendums_v2
-2024-09-08 16:32:12,346 [INFO] Creating thread on Discord: #1083 [Medium Spender] Open-source KYT on Dot #1083
-2024-09-08 16:32:12,598 [INFO] Thread created: 1282377965811929190
-2024-09-08 16:32:16,301 [INFO] Vote results message added instruction message added for 1083
-2024-09-08 16:32:32,331 [INFO] Initializing SubstrateAPI
-2024-09-08 16:32:37,049 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1085&proposalType=referendums_v2
-2024-09-08 16:32:37,049 [INFO] Creating thread on Discord: #1085 The Modern Market Show Headline Sponsorship - 6 Months
-2024-09-08 16:32:37,305 [INFO] Thread created: 1282378069411102851
-2024-09-08 16:32:41,177 [INFO] Vote results message added instruction message added for 1085
-2024-09-08 16:32:57,355 [INFO] Initializing SubstrateAPI
-2024-09-08 16:33:01,069 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1086&proposalType=referendums_v2
-2024-09-08 16:33:01,069 [INFO] Creating thread on Discord: #1086 Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9/5/24
-2024-09-08 16:33:01,358 [INFO] Thread created: 1282378170284376145
-2024-09-08 16:33:04,933 [INFO] Vote results message added instruction message added for 1086
-2024-09-08 16:33:22,324 [INFO] Initializing SubstrateAPI
-2024-09-08 16:33:27,671 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1087&proposalType=referendums_v2
-2024-09-08 16:33:27,671 [INFO] Creating thread on Discord: #1087 Vote NAY
-2024-09-08 16:33:27,908 [INFO] Thread created: 1282378281408139295
-2024-09-08 16:33:31,700 [INFO] Vote results message added instruction message added for 1087
-2024-09-08 16:33:48,684 [INFO] Initializing SubstrateAPI
-2024-09-08 16:33:53,765 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1089&proposalType=referendums_v2
-2024-09-08 16:33:53,766 [INFO] Creating thread on Discord: #1089 Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development and Future
-2024-09-08 16:33:54,139 [INFO] Thread created: 1282378390887989344
-2024-09-08 16:33:57,800 [INFO] Vote results message added instruction message added for 1089
-2024-09-08 16:34:15,340 [INFO] Initializing SubstrateAPI
-2024-09-08 16:34:20,683 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1090&proposalType=referendums_v2
-2024-09-08 16:34:20,683 [INFO] Creating thread on Discord: #1090 B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 16:34:20,940 [INFO] Thread created: 1282378503685406731
-2024-09-08 16:34:24,814 [INFO] Vote results message added instruction message added for 1090
-2024-09-08 16:34:42,118 [INFO] Initializing SubstrateAPI
-2024-09-08 16:34:47,591 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1092&proposalType=referendums_v2
-2024-09-08 16:34:47,591 [INFO] Creating thread on Discord: #1092 POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 16:34:47,842 [INFO] Thread created: 1282378616876961792
-2024-09-08 16:34:51,499 [INFO] Vote results message added instruction message added for 1092
-2024-09-08 16:35:08,697 [INFO] Initializing SubstrateAPI
-2024-09-08 16:35:12,303 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1094&proposalType=referendums_v2
-2024-09-08 16:35:12,303 [INFO] Creating thread on Discord: #1094 From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 16:35:12,636 [INFO] Thread created: 1282378720409292913
-2024-09-08 16:35:16,496 [INFO] Vote results message added instruction message added for 1094
-2024-09-08 16:35:34,440 [INFO] Initializing SubstrateAPI
-2024-09-08 16:35:40,024 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1096&proposalType=referendums_v2
-2024-09-08 16:35:40,024 [INFO] Creating thread on Discord: #1096 IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 16:35:40,314 [INFO] Thread created: 1282378836595441872
-2024-09-08 16:35:45,469 [INFO] Vote results message added instruction message added for 1096
-2024-09-08 16:36:03,807 [INFO] Initializing SubstrateAPI
-2024-09-08 16:36:09,110 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1098&proposalType=referendums_v2
-2024-09-08 16:36:09,110 [INFO] Creating thread on Discord: #1098 Bounty Cleanup
-2024-09-08 16:36:09,609 [INFO] Thread created: 1282378958628847661
-2024-09-08 16:36:13,378 [INFO] Vote results message added instruction message added for 1098
-2024-09-08 16:36:30,483 [INFO] Initializing SubstrateAPI
-2024-09-08 16:36:35,676 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1102&proposalType=referendums_v2
-2024-09-08 16:36:35,676 [INFO] Creating thread on Discord: #1102 Kheopswap retroactive funding
-2024-09-08 16:36:35,892 [INFO] Thread created: 1282379069912125451
-2024-09-08 16:36:39,547 [INFO] Vote results message added instruction message added for 1102
-2024-09-08 16:36:56,697 [INFO] Initializing SubstrateAPI
-2024-09-08 16:37:00,317 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1103&proposalType=referendums_v2
-2024-09-08 16:37:00,317 [INFO] Creating thread on Discord: #1103 Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 16:37:00,570 [INFO] Thread created: 1282379173180215319
-2024-09-08 16:37:04,508 [INFO] Vote results message added instruction message added for 1103
-2024-09-08 16:37:21,445 [INFO] Initializing SubstrateAPI
-2024-09-08 16:37:26,758 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1104&proposalType=referendums_v2
-2024-09-08 16:37:26,758 [INFO] Creating thread on Discord: #1104 Convert Part of DOT Assets to Stablecoins
-2024-09-08 16:37:27,099 [INFO] Thread created: 1282379284639645696
-2024-09-08 16:37:30,670 [INFO] Vote results message added instruction message added for 1104
-2024-09-08 16:37:47,589 [INFO] Initializing SubstrateAPI
-2024-09-08 16:37:52,884 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1106&proposalType=referendums_v2
-2024-09-08 16:37:52,884 [INFO] Creating thread on Discord: #1106 CoinGecko - Polkadot Campaign
-2024-09-08 16:37:53,143 [INFO] Thread created: 1282379394077163560
-2024-09-08 16:37:58,152 [INFO] Vote results message added instruction message added for 1106
-2024-09-08 16:38:15,130 [INFO] Initializing SubstrateAPI
-2024-09-08 16:38:20,512 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1108&proposalType=referendums_v2
-2024-09-08 16:38:20,512 [INFO] Creating thread on Discord: #1108 Wrong Call Data Please Vote NAY
-2024-09-08 16:38:20,808 [INFO] Thread created: 1282379509936685078
-2024-09-08 16:38:24,488 [INFO] Vote results message added instruction message added for 1108
-2024-09-08 16:38:41,366 [INFO] Initializing SubstrateAPI
-2024-09-08 16:38:44,909 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1109&proposalType=referendums_v2
-2024-09-08 16:38:44,909 [INFO] Creating thread on Discord: #1109 Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assistant Propos
-2024-09-08 16:38:45,257 [INFO] Thread created: 1282379612063797360
-2024-09-08 16:38:49,028 [INFO] Vote results message added instruction message added for 1109
-2024-09-08 16:39:06,722 [INFO] Initializing SubstrateAPI
-2024-09-08 16:39:12,094 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1110&proposalType=referendums_v2
-2024-09-08 16:39:12,094 [INFO] Creating thread on Discord: #1110 Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 16:39:12,334 [INFO] Thread created: 1282379725876236320
-2024-09-08 16:39:16,044 [INFO] Vote results message added instruction message added for 1110
-2024-09-08 16:39:33,019 [INFO] Initializing SubstrateAPI
-2024-09-08 16:39:38,037 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1111&proposalType=referendums_v2
-2024-09-08 16:39:38,037 [INFO] Creating thread on Discord: #1111 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 16:39:38,419 [INFO] Thread created: 1282379835297108039
-2024-09-08 16:39:42,159 [INFO] Vote results message added instruction message added for 1111
-2024-09-08 16:39:59,097 [INFO] Initializing SubstrateAPI
-2024-09-08 16:40:04,227 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1113&proposalType=referendums_v2
-2024-09-08 16:40:04,227 [INFO] Creating thread on Discord: #1113 "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 16:40:04,480 [INFO] Thread created: 1282379944810516622
-2024-09-08 16:40:08,305 [INFO] Vote results message added instruction message added for 1113
-2024-09-08 16:40:25,464 [INFO] Initializing SubstrateAPI
-2024-09-08 16:40:28,995 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1114&proposalType=referendums_v2
-2024-09-08 16:40:28,995 [INFO] Creating thread on Discord: #1114 Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Edge Comput
-2024-09-08 16:40:29,229 [INFO] Thread created: 1282380048825061446
-2024-09-08 16:40:32,810 [INFO] Vote results message added instruction message added for 1114
-2024-09-08 16:40:50,669 [INFO] Initializing SubstrateAPI
-2024-09-08 16:40:55,996 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1115&proposalType=referendums_v2
-2024-09-08 16:40:55,996 [INFO] Creating thread on Discord: #1115 FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 16:40:56,211 [INFO] Thread created: 1282380161949630497
-2024-09-08 16:41:00,021 [INFO] Vote results message added instruction message added for 1115
-2024-09-08 16:41:17,005 [INFO] Initializing SubstrateAPI
-2024-09-08 16:41:21,974 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1116&proposalType=referendums_v2
-2024-09-08 16:41:21,974 [INFO] Creating thread on Discord: #1116 Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 16:41:22,273 [INFO] Thread created: 1282380270632435754
-2024-09-08 16:41:25,782 [INFO] Vote results message added instruction message added for 1116
-2024-09-08 16:41:42,498 [INFO] Initializing SubstrateAPI
-2024-09-08 16:41:47,646 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1117&proposalType=referendums_v2
-2024-09-08 16:41:47,647 [INFO] Creating thread on Discord: #1117 Please vote nay
-2024-09-08 16:41:48,006 [INFO] Thread created: 1282380378950340728
-2024-09-08 16:41:51,682 [INFO] Vote results message added instruction message added for 1117
-2024-09-08 16:42:06,755 [INFO] Initializing SubstrateAPI
-2024-09-08 16:42:10,326 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1118&proposalType=referendums_v2
-2024-09-08 16:42:10,326 [INFO] Creating thread on Discord: #1118 [Retroactive] SubWallet 08 Months Development
-2024-09-08 16:42:10,646 [INFO] Thread created: 1282380473938477238
-2024-09-08 16:42:14,419 [INFO] Vote results message added instruction message added for 1118
-2024-09-08 16:42:32,243 [INFO] Initializing SubstrateAPI
-2024-09-08 16:42:37,581 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1119&proposalType=referendums_v2
-2024-09-08 16:42:37,581 [INFO] Creating thread on Discord: #1119 Coretime Notifications
-2024-09-08 16:42:37,824 [INFO] Thread created: 1282380588145180764
-2024-09-08 16:42:41,547 [INFO] Vote results message added instruction message added for 1119
-2024-09-08 16:42:58,187 [INFO] Initializing SubstrateAPI
-2024-09-08 16:43:03,224 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1121&proposalType=referendums_v2
-2024-09-08 16:43:03,225 [INFO] Creating thread on Discord: #1121 Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 16:43:03,543 [INFO] Thread created: 1282380695984930937
-2024-09-08 16:43:07,440 [INFO] Vote results message added instruction message added for 1121
-2024-09-08 16:43:24,523 [INFO] Initializing SubstrateAPI
-2024-09-08 16:43:29,473 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1122&proposalType=referendums_v2
-2024-09-08 16:43:29,473 [INFO] Creating thread on Discord: #1122 Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 16:43:29,860 [INFO] Thread created: 1282380805867438182
-2024-09-08 16:43:33,504 [INFO] Vote results message added instruction message added for 1122
-2024-09-08 16:43:50,288 [INFO] Initializing SubstrateAPI
-2024-09-08 16:43:55,313 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1123&proposalType=referendums_v2
-2024-09-08 16:43:55,313 [INFO] Creating thread on Discord: #1123 ink! Alliance for a more successful Plaza
-2024-09-08 16:43:55,574 [INFO] Thread created: 1282380914160177153
-2024-09-08 16:43:59,313 [INFO] Vote results message added instruction message added for 1123
-2024-09-08 16:44:16,175 [INFO] Initializing SubstrateAPI
-2024-09-08 16:44:19,969 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1125&proposalType=referendums_v2
-2024-09-08 16:44:19,970 [INFO] Creating thread on Discord: #1125 Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execution. Sept
-2024-09-08 16:44:20,241 [INFO] Thread created: 1282381017327337535
-2024-09-08 16:44:23,893 [INFO] Vote results message added instruction message added for 1125
-2024-09-08 16:44:42,010 [INFO] Initializing SubstrateAPI
-2024-09-08 16:44:47,049 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1127&proposalType=referendums_v2
-2024-09-08 16:44:47,049 [INFO] Creating thread on Discord: #1127 Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 16:44:47,264 [INFO] Thread created: 1282381131181723752
-2024-09-08 16:44:50,895 [INFO] Vote results message added instruction message added for 1127
-2024-09-08 16:45:07,652 [INFO] Initializing SubstrateAPI
-2024-09-08 16:45:12,452 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1128&proposalType=referendums_v2
-2024-09-08 16:45:12,452 [INFO] Creating thread on Discord: #1128 Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 16:45:12,697 [INFO] Thread created: 1282381237717172337
-2024-09-08 16:45:16,557 [INFO] Vote results message added instruction message added for 1128
-2024-09-08 16:45:33,389 [INFO] Initializing SubstrateAPI
-2024-09-08 16:45:38,336 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1129&proposalType=referendums_v2
-2024-09-08 16:45:38,336 [INFO] Creating thread on Discord: #1129 [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 16:45:38,546 [INFO] Thread created: 1282381346274017321
-2024-09-08 16:45:42,144 [INFO] Vote results message added instruction message added for 1129
-2024-09-08 16:45:59,142 [INFO] Initializing SubstrateAPI
-2024-09-08 16:46:02,800 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1130&proposalType=referendums_v2
-2024-09-08 16:46:02,800 [INFO] Creating thread on Discord: #1130 WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 16:46:03,112 [INFO] Thread created: 1282381449017950362
-2024-09-08 16:46:07,233 [INFO] Vote results message added instruction message added for 1130
-2024-09-08 16:46:26,155 [INFO] Initializing SubstrateAPI
-2024-09-08 16:46:29,571 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1132&proposalType=referendums_v2
-2024-09-08 16:46:29,571 [INFO] Creating thread on Discord: #1132 Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-Q3 2024
-2024-09-08 16:46:29,838 [INFO] Thread created: 1282381561211387985
-2024-09-08 16:46:33,584 [INFO] Vote results message added instruction message added for 1132
-2024-09-08 16:46:50,716 [INFO] Initializing SubstrateAPI
-2024-09-08 16:46:55,478 [ERROR] No value: None
+2024-09-08 20:52:59,307 [INFO] Initializing SubstrateAPI
+2024-09-08 20:52:59,315 [INFO] Initializing SubstrateAPI
+2024-09-08 20:52:59,328 [INFO] ../data/archived_votes.json missing... creating file
+2024-09-08 20:52:59,328 [INFO] ../data/governance.cache missing... creating file
+2024-09-08 20:52:59,328 [INFO] ../data/onchain-votes.json missing... creating file
+2024-09-08 20:52:59,329 [INFO] ../data/vote_counts.json missing... creating file
+2024-09-08 20:52:59,329 [INFO] logging in using static token
+2024-09-08 20:53:00,321 [INFO] Shard ID None has connected to Gateway (Session ID: c3e1ae95898b5a451b54e7c0b27e866c).
+2024-09-08 20:53:02,331 [INFO] Starting stopped tasks
+2024-09-08 20:53:02,331 [INFO] Task successfully started
+2024-09-08 20:53:02,332 [INFO] Checking for new proposals
+2024-09-08 20:53:02,332 [INFO] Initializing SubstrateAPI
+2024-09-08 20:53:18,889 [INFO] Checking active proposals from polkadot against vote_counts.json to archive threads where the proposal is no longer active
+2024-09-08 20:53:25,189 [INFO] No threads to lock
+2024-09-08 20:53:25,189 [INFO] 47 new proposal(s) found
+2024-09-08 20:53:32,423 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1074&proposalType=referendums_v2
+2024-09-08 20:53:32,423 [INFO] Creating thread on Discord: #1074 Changes to PAL Security Bounty
+2024-09-08 20:53:32,692 [INFO] Thread created: 1282443732670480425
+2024-09-08 20:53:36,171 [INFO] Vote results message added instruction message added for 1074
+2024-09-08 20:53:59,893 [INFO] Initializing SubstrateAPI
+2024-09-08 20:54:10,336 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1083&proposalType=referendums_v2
+2024-09-08 20:54:10,336 [INFO] Creating thread on Discord: #1083 [Medium Spender] Open-source KYT on Dot #1083
+2024-09-08 20:54:10,584 [INFO] Thread created: 1282443891777474570
+2024-09-08 20:54:14,412 [INFO] Vote results message added instruction message added for 1083
+2024-09-08 20:54:30,977 [INFO] Initializing SubstrateAPI
+2024-09-08 20:54:35,647 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1085&proposalType=referendums_v2
+2024-09-08 20:54:35,647 [INFO] Creating thread on Discord: #1085 The Modern Market Show Headline Sponsorship - 6 Months
+2024-09-08 20:54:36,031 [INFO] Thread created: 1282443997767274517
+2024-09-08 20:54:40,162 [INFO] Vote results message added instruction message added for 1085
+2024-09-08 20:54:53,410 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
+    addrinfo_list = socket.getaddrinfo(
+  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/bot/utils/subquery.py", line 25, in _connect
+    return SubstrateInterface(
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
+    self.connect_websocket()
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
+    self.websocket = create_connection(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
+    websock.connect(url, **options)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
+    self.sock, addrs = connect(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
+    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
+    raise WebSocketAddressException(e)
+websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
+2024-09-08 20:54:53,413 [ERROR] An error occurred: [Errno -5] No address associated with hostname
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
+    addrinfo_list = socket.getaddrinfo(
+  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno -5] No address associated with hostname
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/app/bot/main.py", line 207, in check_governance
+    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
+  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
+    valid_address = await self.substrate.check_ss58_address(address=value)
+  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
+    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
+  File "/app/bot/utils/subquery.py", line 25, in _connect
+    return SubstrateInterface(
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
+    self.connect_websocket()
+  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
+    self.websocket = create_connection(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
+    websock.connect(url, **options)
+  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
+    self.sock, addrs = connect(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
+    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
+  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
+    raise WebSocketAddressException(e)
+websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
+2024-09-08 20:54:53,414 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1086&proposalType=referendums_v2
+2024-09-08 20:54:53,414 [INFO] Creating thread on Discord: #1086 Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9/5/24
+2024-09-08 20:54:54,161 [INFO] Thread created: 1282444074275835966
+2024-09-08 20:54:58,540 [INFO] Vote results message added instruction message added for 1086
+2024-09-08 20:55:16,295 [INFO] Initializing SubstrateAPI
+2024-09-08 20:55:20,736 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1087&proposalType=referendums_v2
+2024-09-08 20:55:20,737 [INFO] Creating thread on Discord: #1087 Vote NAY
+2024-09-08 20:55:20,960 [INFO] Thread created: 1282444186695630911
+2024-09-08 20:55:24,562 [INFO] Vote results message added instruction message added for 1087
+2024-09-08 20:55:42,952 [INFO] Initializing SubstrateAPI
+2024-09-08 20:55:48,881 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1089&proposalType=referendums_v2
+2024-09-08 20:55:48,882 [INFO] Creating thread on Discord: #1089 Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development and Future
+2024-09-08 20:55:49,341 [INFO] Thread created: 1282444305704685589
+2024-09-08 20:55:52,817 [INFO] Vote results message added instruction message added for 1089
+2024-09-08 20:56:11,621 [INFO] Initializing SubstrateAPI
+2024-09-08 20:56:17,104 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1090&proposalType=referendums_v2
+2024-09-08 20:56:17,104 [INFO] Creating thread on Discord: #1090 B2B Marketing & Sales Enablement For The Polkadot Ecosystem
+2024-09-08 20:56:17,371 [INFO] Thread created: 1282444423489126511
+2024-09-08 20:56:20,894 [INFO] Vote results message added instruction message added for 1090
+2024-09-08 20:56:39,352 [INFO] Initializing SubstrateAPI
+2024-09-08 20:56:43,360 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1092&proposalType=referendums_v2
+2024-09-08 20:56:43,360 [INFO] Creating thread on Discord: #1092 POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
+2024-09-08 20:56:43,644 [INFO] Thread created: 1282444533543604398
+2024-09-08 20:56:47,043 [INFO] Vote results message added instruction message added for 1092
+2024-09-08 20:57:06,154 [INFO] Initializing SubstrateAPI
+2024-09-08 20:57:11,846 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1094&proposalType=referendums_v2
+2024-09-08 20:57:11,847 [INFO] Creating thread on Discord: #1094 From Pitch to Market: Enhancing Founder Success with PolkaBiz
+2024-09-08 20:57:12,121 [INFO] Thread created: 1282444652871684128
+2024-09-08 20:57:17,394 [INFO] Vote results message added instruction message added for 1094
+2024-09-08 20:57:35,479 [INFO] Initializing SubstrateAPI
+2024-09-08 20:57:40,958 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1096&proposalType=referendums_v2
+2024-09-08 20:57:40,958 [INFO] Creating thread on Discord: #1096 IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
+2024-09-08 20:57:41,190 [INFO] Thread created: 1282444775164743752
+2024-09-08 20:57:44,913 [INFO] Vote results message added instruction message added for 1096
+2024-09-08 20:58:03,175 [INFO] Initializing SubstrateAPI
+2024-09-08 20:58:07,626 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1098&proposalType=referendums_v2
+2024-09-08 20:58:07,626 [INFO] Creating thread on Discord: #1098 Bounty Cleanup
+2024-09-08 20:58:07,854 [INFO] Thread created: 1282444886976757870
+2024-09-08 20:58:12,037 [INFO] Vote results message added instruction message added for 1098
+2024-09-08 20:58:31,004 [INFO] Initializing SubstrateAPI
+2024-09-08 20:58:37,213 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1102&proposalType=referendums_v2
+2024-09-08 20:58:37,214 [INFO] Creating thread on Discord: #1102 Kheopswap retroactive funding
+2024-09-08 20:58:37,495 [INFO] Thread created: 1282445011107057765
+2024-09-08 20:58:41,389 [INFO] Vote results message added instruction message added for 1102
+2024-09-08 20:58:59,370 [INFO] Initializing SubstrateAPI
+2024-09-08 20:59:04,926 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1103&proposalType=referendums_v2
+2024-09-08 20:59:04,926 [INFO] Creating thread on Discord: #1103 Polkadot-API: Aug 2024 - Jan 2025 development financing
+2024-09-08 20:59:05,266 [INFO] Thread created: 1282445127591137402
+2024-09-08 20:59:09,003 [INFO] Vote results message added instruction message added for 1103
+2024-09-08 20:59:26,285 [INFO] Initializing SubstrateAPI
+2024-09-08 20:59:31,077 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1104&proposalType=referendums_v2
+2024-09-08 20:59:31,077 [INFO] Creating thread on Discord: #1104 Convert Part of DOT Assets to Stablecoins
+2024-09-08 20:59:31,363 [INFO] Thread created: 1282445236613812256
+2024-09-08 20:59:35,211 [INFO] Vote results message added instruction message added for 1104
+2024-09-08 20:59:55,058 [INFO] Initializing SubstrateAPI
+2024-09-08 21:00:00,907 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1106&proposalType=referendums_v2
+2024-09-08 21:00:00,908 [INFO] Creating thread on Discord: #1106 CoinGecko - Polkadot Campaign
+2024-09-08 21:00:01,244 [INFO] Thread created: 1282445362191269950
+2024-09-08 21:00:05,862 [INFO] Vote results message added instruction message added for 1106
+2024-09-08 21:00:25,733 [INFO] Initializing SubstrateAPI
+2024-09-08 21:00:32,326 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1108&proposalType=referendums_v2
+2024-09-08 21:00:32,326 [INFO] Creating thread on Discord: #1108 Wrong Call Data Please Vote NAY
+2024-09-08 21:00:32,685 [INFO] Thread created: 1282445494018113651
+2024-09-08 21:00:36,366 [INFO] Vote results message added instruction message added for 1108
+2024-09-08 21:00:54,956 [INFO] Initializing SubstrateAPI
+2024-09-08 21:00:58,976 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1109&proposalType=referendums_v2
+2024-09-08 21:00:58,977 [INFO] Creating thread on Discord: #1109 Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assistant Propos
+2024-09-08 21:00:59,213 [INFO] Thread created: 1282445605695656018
+2024-09-08 21:01:03,177 [INFO] Vote results message added instruction message added for 1109
+2024-09-08 21:01:23,300 [INFO] Initializing SubstrateAPI
+2024-09-08 21:01:29,139 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1110&proposalType=referendums_v2
+2024-09-08 21:01:29,139 [INFO] Creating thread on Discord: #1110 Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
+2024-09-08 21:01:29,397 [INFO] Thread created: 1282445732183412787
+2024-09-08 21:01:33,339 [INFO] Vote results message added instruction message added for 1110
+2024-09-08 21:01:51,240 [INFO] Initializing SubstrateAPI
+2024-09-08 21:01:56,573 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1111&proposalType=referendums_v2
+2024-09-08 21:01:56,573 [INFO] Creating thread on Discord: #1111 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
+2024-09-08 21:01:57,147 [INFO] Thread created: 1282445848340336791
+2024-09-08 21:02:01,006 [INFO] Vote results message added instruction message added for 1111
+2024-09-08 21:02:19,204 [INFO] Initializing SubstrateAPI
+2024-09-08 21:02:22,938 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1113&proposalType=referendums_v2
+2024-09-08 21:02:22,938 [INFO] Creating thread on Discord: #1113 "sub0 RESET" @Devcon Bangkok - back to the roots
+2024-09-08 21:02:23,199 [INFO] Thread created: 1282445957643898952
+2024-09-08 21:02:26,761 [INFO] Vote results message added instruction message added for 1113
+2024-09-08 21:02:47,275 [INFO] Initializing SubstrateAPI
+2024-09-08 21:02:51,051 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1114&proposalType=referendums_v2
+2024-09-08 21:02:51,051 [INFO] Creating thread on Discord: #1114 Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Edge Comput
+2024-09-08 21:02:51,294 [INFO] Thread created: 1282446075646574634
+2024-09-08 21:02:54,827 [INFO] Vote results message added instruction message added for 1114
+2024-09-08 21:03:13,298 [INFO] Initializing SubstrateAPI
+2024-09-08 21:03:19,196 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1115&proposalType=referendums_v2
+2024-09-08 21:03:19,196 [INFO] Creating thread on Discord: #1115 FiDi | Polkadot’s Code-Free Intelligence
+2024-09-08 21:03:19,672 [INFO] Thread created: 1282446194265690223
+2024-09-08 21:03:23,592 [INFO] Vote results message added instruction message added for 1115
+2024-09-08 21:03:42,138 [INFO] Initializing SubstrateAPI
+2024-09-08 21:03:48,772 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1116&proposalType=referendums_v2
+2024-09-08 21:03:48,772 [INFO] Creating thread on Discord: #1116 Polkadot Virtual Machine (PVM) Formal Specification Development
+2024-09-08 21:03:49,127 [INFO] Thread created: 1282446317574029324
+2024-09-08 21:03:53,368 [INFO] Vote results message added instruction message added for 1116
+2024-09-08 21:04:12,008 [INFO] Initializing SubstrateAPI
+2024-09-08 21:04:17,703 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1117&proposalType=referendums_v2
+2024-09-08 21:04:17,703 [INFO] Creating thread on Discord: #1117 Please vote nay
+2024-09-08 21:04:17,894 [INFO] Thread created: 1282446439171227709
+2024-09-08 21:04:21,376 [INFO] Vote results message added instruction message added for 1117
+2024-09-08 21:04:38,242 [INFO] Initializing SubstrateAPI
+2024-09-08 21:04:44,210 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1118&proposalType=referendums_v2
+2024-09-08 21:04:44,210 [INFO] Creating thread on Discord: #1118 [Retroactive] SubWallet 08 Months Development
+2024-09-08 21:04:44,566 [INFO] Thread created: 1282446550475214938
+2024-09-08 21:04:48,068 [INFO] Vote results message added instruction message added for 1118
+2024-09-08 21:05:06,739 [INFO] Initializing SubstrateAPI
+2024-09-08 21:05:12,691 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1119&proposalType=referendums_v2
+2024-09-08 21:05:12,692 [INFO] Creating thread on Discord: #1119 Coretime Notifications
+2024-09-08 21:05:12,952 [INFO] Thread created: 1282446669824397332
+2024-09-08 21:05:16,550 [INFO] Vote results message added instruction message added for 1119
+2024-09-08 21:05:34,832 [INFO] Initializing SubstrateAPI
+2024-09-08 21:05:38,723 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1121&proposalType=referendums_v2
+2024-09-08 21:05:38,723 [INFO] Creating thread on Discord: #1121 Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
+2024-09-08 21:05:39,008 [INFO] Thread created: 1282446779098595471
+2024-09-08 21:05:42,872 [INFO] Vote results message added instruction message added for 1121
+2024-09-08 21:06:01,683 [INFO] Initializing SubstrateAPI
+2024-09-08 21:06:07,235 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1122&proposalType=referendums_v2
+2024-09-08 21:06:07,236 [INFO] Creating thread on Discord: #1122 Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
+2024-09-08 21:06:07,454 [INFO] Thread created: 1282446898267164745
+2024-09-08 21:06:11,399 [INFO] Vote results message added instruction message added for 1122
+2024-09-08 21:06:29,856 [INFO] Initializing SubstrateAPI
+2024-09-08 21:06:36,226 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1123&proposalType=referendums_v2
+2024-09-08 21:06:36,227 [INFO] Creating thread on Discord: #1123 ink! Alliance for a more successful Plaza
+2024-09-08 21:06:36,495 [INFO] Thread created: 1282447019990061157
+2024-09-08 21:06:40,012 [INFO] Vote results message added instruction message added for 1123
+2024-09-08 21:06:58,858 [INFO] Initializing SubstrateAPI
+2024-09-08 21:07:02,848 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1125&proposalType=referendums_v2
+2024-09-08 21:07:02,848 [INFO] Creating thread on Discord: #1125 Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execution. Sept
+2024-09-08 21:07:03,088 [INFO] Thread created: 1282447131671793725
+2024-09-08 21:07:06,886 [INFO] Vote results message added instruction message added for 1125
+2024-09-08 21:07:25,619 [INFO] Initializing SubstrateAPI
+2024-09-08 21:07:31,296 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1127&proposalType=referendums_v2
+2024-09-08 21:07:31,296 [INFO] Creating thread on Discord: #1127 Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
+2024-09-08 21:07:31,499 [INFO] Thread created: 1282447250932371579
+2024-09-08 21:07:34,932 [INFO] Vote results message added instruction message added for 1127
+2024-09-08 21:07:53,187 [INFO] Initializing SubstrateAPI
+2024-09-08 21:07:59,210 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1128&proposalType=referendums_v2
+2024-09-08 21:07:59,210 [INFO] Creating thread on Discord: #1128 Retroactive Tip to AwesomeDot Team for high quality technical podcasts
+2024-09-08 21:07:59,485 [INFO] Thread created: 1282447367995392201
+2024-09-08 21:08:03,431 [INFO] Vote results message added instruction message added for 1128
+2024-09-08 21:08:21,755 [INFO] Initializing SubstrateAPI
+2024-09-08 21:08:25,646 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1129&proposalType=referendums_v2
+2024-09-08 21:08:25,646 [INFO] Creating thread on Discord: #1129 [Whitelisted Caller] Increase validator set size to 400
+2024-09-08 21:08:25,891 [INFO] Thread created: 1282447479211819162
+2024-09-08 21:08:29,650 [INFO] Vote results message added instruction message added for 1129
+2024-09-08 21:08:48,739 [INFO] Initializing SubstrateAPI
+2024-09-08 21:08:54,549 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1130&proposalType=referendums_v2
+2024-09-08 21:08:54,549 [INFO] Creating thread on Discord: #1130 WagMedia - Collective Content Creation for 52 Weeks
+2024-09-08 21:08:54,793 [INFO] Thread created: 1282447600385003595
+2024-09-08 21:08:58,520 [INFO] Vote results message added instruction message added for 1130
+2024-09-08 21:09:16,584 [INFO] Initializing SubstrateAPI
+2024-09-08 21:09:22,293 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1132&proposalType=referendums_v2
+2024-09-08 21:09:22,294 [INFO] Creating thread on Discord: #1132 Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-Q3 2024
+2024-09-08 21:09:22,514 [INFO] Thread created: 1282447716743643288
+2024-09-08 21:09:26,109 [INFO] Vote results message added instruction message added for 1132
+2024-09-08 21:09:44,947 [INFO] Initializing SubstrateAPI
+2024-09-08 21:09:49,457 [ERROR] No value: None
 NoneType: None
-2024-09-08 16:46:55,478 [INFO] Creating thread on Discord: #1133 None
-2024-09-08 16:46:55,672 [INFO] Thread created: 1282381669793267793
-2024-09-08 16:46:59,937 [INFO] Vote results message added instruction message added for 1133
-2024-09-08 16:47:15,880 [INFO] Initializing SubstrateAPI
-2024-09-08 16:47:20,737 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1135&proposalType=referendums_v2
-2024-09-08 16:47:20,737 [INFO] Creating thread on Discord: #1135 EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180DaysOfPolka
-2024-09-08 16:47:20,996 [INFO] Thread created: 1282381775447920702
-2024-09-08 16:47:24,777 [INFO] Vote results message added instruction message added for 1135
-2024-09-08 16:47:41,558 [INFO] Initializing SubstrateAPI
-2024-09-08 16:47:46,588 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1136&proposalType=referendums_v2
-2024-09-08 16:47:46,588 [INFO] Creating thread on Discord: #1136 Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 16:47:46,834 [INFO] Thread created: 1282381884172669118
-2024-09-08 16:47:50,505 [INFO] Vote results message added instruction message added for 1136
-2024-09-08 16:48:07,732 [INFO] Initializing SubstrateAPI
-2024-09-08 16:48:11,592 [ERROR] Failed to create tag: 403 Forbidden (error code: 50013): Missing Permissions
-Traceback (most recent call last):
-  File "/app/bot/governance_monitor.py", line 528, in get_or_create_governance_tag
-    governance_tag = await channel.create_tag(name=governance_origin[0])
-  File "/usr/local/lib/python3.9/site-packages/discord/channel.py", line 2568, in create_tag
-    payload = await self._state.http.edit_channel(
-  File "/usr/local/lib/python3.9/site-packages/discord/http.py", line 739, in request
-    raise Forbidden(response, data)
-discord.errors.Forbidden: 403 Forbidden (error code: 50013): Missing Permissions
-2024-09-08 16:48:11,594 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1137&proposalType=referendums_v2
-2024-09-08 16:48:11,594 [INFO] Creating thread on Discord: #1137 Polkadot's Economics Parameters: Proposal 1 (10% constant total inflation)
-2024-09-08 16:48:11,595 [ERROR] Failed to manage Discord thread: 'NoneType' object has no attribute 'id'
-Traceback (most recent call last):
-  File "/app/bot/governance_monitor.py", line 498, in manage_discord_thread
-    thread = await channel.create_thread(
-  File "/usr/local/lib/python3.9/site-packages/discord/channel.py", line 2699, in create_thread
-    channel_payload['applied_tags'] = [str(tag.id) for tag in applied_tags]
-  File "/usr/local/lib/python3.9/site-packages/discord/channel.py", line 2699, in <listcomp>
-    channel_payload['applied_tags'] = [str(tag.id) for tag in applied_tags]
-AttributeError: 'NoneType' object has no attribute 'id'
-2024-09-08 16:48:11,595 [ERROR] Failed to create thread: 'NoneType' object has no attribute 'message'
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 147, in check_governance
-    logging.info(f"Thread created: {thread.message.id}")
-AttributeError: 'NoneType' object has no attribute 'message'
-2024-09-08 16:48:11,595 [INFO] Starting stopped tasks
-2024-09-08 16:48:11,595 [INFO] Task successfully started
-2024-09-08 16:48:11,596 [INFO] Starting stopped tasks
-2024-09-08 16:48:11,596 [INFO] Task successfully started
-2024-09-08 16:48:11,596 [INFO] Starting stopped tasks
-2024-09-08 16:48:11,596 [INFO] Task successfully started
-2024-09-08 16:48:11,598 [INFO] Stopping tasks
-2024-09-08 16:48:11,598 [INFO] recheck_proposals task is running
-2024-09-08 16:48:11,598 [INFO] Task successfully stopped
-2024-09-08 16:48:11,598 [INFO] Stopping tasks
-2024-09-08 16:48:11,599 [INFO] Task successfully stopped
-2024-09-08 16:48:11,603 [INFO] autonomous_voting task is running
-2024-09-08 16:48:18,567 [INFO] Checking Discord vote results for: 1074
-2024-09-08 16:48:18,567 [INFO] Result: Vote period has ended.
-2024-09-08 16:48:27,597 [INFO] Checking Discord vote results for: 1083
-2024-09-08 16:48:27,597 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:48:27,597 [INFO] Result: abstain
-2024-09-08 16:48:35,088 [INFO] Checking Discord vote results for: 1085
-2024-09-08 16:48:35,089 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:48:35,089 [INFO] Result: abstain
-2024-09-08 16:48:44,134 [INFO] Checking Discord vote results for: 1086
-2024-09-08 16:48:44,134 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:48:44,134 [INFO] Result: abstain
-2024-09-08 16:48:52,876 [INFO] Checking Discord vote results for: 1087
-2024-09-08 16:48:52,877 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:48:52,877 [INFO] Result: abstain
-2024-09-08 16:49:01,828 [INFO] Checking Discord vote results for: 1089
-2024-09-08 16:49:01,828 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:01,830 [INFO] Result: abstain
-2024-09-08 16:49:09,402 [INFO] Checking Discord vote results for: 1090
-2024-09-08 16:49:09,402 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:09,403 [INFO] Result: abstain
-2024-09-08 16:49:18,982 [INFO] Checking Discord vote results for: 1092
-2024-09-08 16:49:18,982 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:18,982 [INFO] Result: abstain
-2024-09-08 16:49:27,898 [INFO] Checking Discord vote results for: 1094
-2024-09-08 16:49:27,898 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:27,898 [INFO] Result: abstain
-2024-09-08 16:49:35,590 [INFO] Checking Discord vote results for: 1096
-2024-09-08 16:49:35,590 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:35,591 [INFO] Result: abstain
-2024-09-08 16:49:44,917 [INFO] Checking Discord vote results for: 1098
-2024-09-08 16:49:44,917 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:44,917 [INFO] Result: abstain
-2024-09-08 16:49:53,898 [INFO] Checking Discord vote results for: 1102
-2024-09-08 16:49:53,899 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:49:53,899 [INFO] Result: abstain
-2024-09-08 16:50:03,301 [INFO] Checking Discord vote results for: 1103
-2024-09-08 16:50:03,302 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:03,302 [INFO] Result: abstain
-2024-09-08 16:50:10,852 [INFO] Checking Discord vote results for: 1104
-2024-09-08 16:50:10,852 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:10,853 [INFO] Result: abstain
-2024-09-08 16:50:20,512 [INFO] Checking Discord vote results for: 1106
-2024-09-08 16:50:20,512 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:20,512 [INFO] Result: abstain
-2024-09-08 16:50:29,623 [INFO] Checking Discord vote results for: 1108
-2024-09-08 16:50:29,624 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:29,624 [INFO] Result: abstain
-2024-09-08 16:50:37,163 [INFO] Checking Discord vote results for: 1109
-2024-09-08 16:50:37,164 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:37,164 [INFO] Result: abstain
-2024-09-08 16:50:46,470 [INFO] Checking Discord vote results for: 1110
-2024-09-08 16:50:46,470 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:46,470 [INFO] Result: abstain
-2024-09-08 16:50:55,571 [INFO] Checking Discord vote results for: 1111
-2024-09-08 16:50:55,571 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:50:55,571 [INFO] Result: abstain
-2024-09-08 16:51:03,163 [INFO] Checking Discord vote results for: 1113
-2024-09-08 16:51:03,163 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:03,163 [INFO] Result: abstain
-2024-09-08 16:51:12,645 [INFO] Checking Discord vote results for: 1114
-2024-09-08 16:51:12,645 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:12,645 [INFO] Result: abstain
-2024-09-08 16:51:22,126 [INFO] Checking Discord vote results for: 1115
-2024-09-08 16:51:22,126 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:22,126 [INFO] Result: abstain
-2024-09-08 16:51:29,654 [INFO] Checking Discord vote results for: 1116
-2024-09-08 16:51:29,654 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:29,654 [INFO] Result: abstain
-2024-09-08 16:51:38,879 [INFO] Checking Discord vote results for: 1117
-2024-09-08 16:51:38,880 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:38,880 [INFO] Result: abstain
-2024-09-08 16:51:47,871 [INFO] Checking Discord vote results for: 1118
-2024-09-08 16:51:47,872 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:47,872 [INFO] Result: abstain
-2024-09-08 16:51:55,437 [INFO] Checking Discord vote results for: 1119
-2024-09-08 16:51:55,437 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:51:55,437 [INFO] Result: abstain
-2024-09-08 16:52:04,718 [INFO] Checking Discord vote results for: 1121
-2024-09-08 16:52:04,719 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:04,719 [INFO] Result: abstain
-2024-09-08 16:52:13,679 [INFO] Checking Discord vote results for: 1122
-2024-09-08 16:52:13,679 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:13,679 [INFO] Result: abstain
-2024-09-08 16:52:21,270 [INFO] Checking Discord vote results for: 1123
-2024-09-08 16:52:21,271 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:21,271 [INFO] Result: abstain
-2024-09-08 16:52:30,553 [INFO] Checking Discord vote results for: 1125
-2024-09-08 16:52:30,554 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:30,554 [INFO] Result: abstain
-2024-09-08 16:52:39,544 [INFO] Checking Discord vote results for: 1127
-2024-09-08 16:52:39,544 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:39,544 [INFO] Result: abstain
-2024-09-08 16:52:47,220 [INFO] Checking Discord vote results for: 1128
-2024-09-08 16:52:47,220 [INFO] Result: Vote period has ended.
-2024-09-08 16:52:56,335 [INFO] Checking Discord vote results for: 1129
-2024-09-08 16:52:56,335 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:52:56,335 [INFO] Result: abstain
-2024-09-08 16:53:05,270 [INFO] Checking Discord vote results for: 1130
-2024-09-08 16:53:05,271 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:53:05,271 [INFO] Result: abstain
-2024-09-08 16:53:12,955 [INFO] Checking Discord vote results for: 1132
-2024-09-08 16:53:12,956 [INFO] Result: Waiting for 1st vote conditions to be met. is 533496 > 604800?
-2024-09-08 16:53:22,373 [INFO] Checking Discord vote results for: 1133
-2024-09-08 16:53:22,373 [WARNING] Participation too low, defaulting to Abstain
-2024-09-08 16:53:22,373 [INFO] Result: abstain
-2024-09-08 16:53:31,181 [INFO] Checking Discord vote results for: 1135
-2024-09-08 16:53:31,181 [INFO] Result: Waiting for 1st vote conditions to be met. is 371731 > 604800?
-2024-09-08 16:53:40,308 [INFO] Checking Discord vote results for: 1136
-2024-09-08 16:53:40,308 [INFO] Result: Waiting for 1st vote conditions to be met. is 342802 > 604800?
-2024-09-08 16:53:42,813 [INFO] Starting stopped tasks
-2024-09-08 16:53:42,813 [INFO] Task successfully started
-2024-09-08 16:53:42,813 [INFO] Starting stopped tasks
-2024-09-08 16:53:42,813 [INFO] Task successfully started
-2024-09-08 16:53:42,814 [INFO] recheck_proposals task is running
-2024-09-08 16:53:42,815 [INFO] Initializing SubstrateAPI
-2024-09-08 16:53:47,239 [INFO] Synchronizing embeds
-2024-09-08 16:53:47,240 [INFO] 38 threads to synchronize
-2024-09-08 16:53:47,240 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 16:54:04,326 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 16:54:06,827 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 16:54:24,013 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 16:54:26,514 [INFO] Synchronizing 1133: None
-2024-09-08 16:54:43,002 [INFO] Successfully synchronized 1133: None
-2024-09-08 16:54:45,503 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 16:54:54,099 [INFO] recheck_proposals complete
-2024-09-08 16:55:03,853 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 16:55:06,356 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 16:55:22,261 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 16:55:24,763 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 16:55:40,289 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 16:55:42,792 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 16:55:58,665 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 16:56:01,168 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 16:56:16,985 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 16:56:19,488 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 16:56:35,345 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 16:56:37,848 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 16:56:54,891 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 16:56:57,394 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 16:57:13,522 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 16:57:16,023 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 16:57:32,019 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 16:57:34,522 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 16:57:51,873 [INFO] Successfully synchronized 1119: Coretime Notifications
-2024-09-08 16:57:54,377 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 16:58:10,455 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 16:58:12,958 [INFO] Synchronizing 1117: Please vote nay
-2024-09-08 16:58:27,550 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 16:58:27,555 [INFO] Initializing SubstrateAPI
-2024-09-08 16:58:31,849 [WARNING] Preimage is still missing
-2024-09-08 16:58:31,849 [INFO] Successfully synchronized 1117: Please vote nay
-2024-09-08 16:58:34,352 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 16:58:50,439 [INFO] Successfully synchronized 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 16:58:52,941 [INFO] Synchronizing 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 16:59:08,844 [INFO] Successfully synchronized 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 16:59:11,347 [INFO] Synchronizing 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 16:59:27,352 [INFO] Successfully synchronized 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 16:59:29,855 [INFO] Synchronizing 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 16:59:46,732 [INFO] Successfully synchronized 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 16:59:49,235 [INFO] Synchronizing 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 17:00:05,795 [INFO] Successfully synchronized 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 17:00:08,298 [INFO] Synchronizing 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 17:00:24,708 [INFO] Successfully synchronized 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 17:00:27,211 [INFO] Synchronizing 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 17:00:42,968 [INFO] Successfully synchronized 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 17:00:45,471 [INFO] Synchronizing 1108: Wrong Call Data Please Vote NAY
-2024-09-08 17:01:02,066 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 17:01:02,071 [INFO] Initializing SubstrateAPI
-2024-09-08 17:01:06,568 [WARNING] Preimage is still missing
-2024-09-08 17:01:06,568 [INFO] Successfully synchronized 1108: Wrong Call Data Please Vote NAY
-2024-09-08 17:01:09,071 [INFO] Synchronizing 1106: CoinGecko - Polkadot Campaign
-2024-09-08 17:01:25,763 [INFO] Successfully synchronized 1106: CoinGecko - Polkadot Campaign
-2024-09-08 17:01:28,266 [INFO] Synchronizing 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 17:01:44,920 [INFO] Successfully synchronized 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 17:01:47,423 [INFO] Synchronizing 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 17:02:02,888 [INFO] Successfully synchronized 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 17:02:05,390 [INFO] Synchronizing 1102: Kheopswap retroactive funding
-2024-09-08 17:02:21,869 [INFO] Successfully synchronized 1102: Kheopswap retroactive funding
-2024-09-08 17:02:24,372 [INFO] Synchronizing 1098: Bounty Cleanup
-2024-09-08 17:02:40,864 [INFO] Successfully synchronized 1098: Bounty Cleanup
-2024-09-08 17:02:43,367 [INFO] Synchronizing 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 17:03:00,013 [INFO] Successfully synchronized 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 17:03:02,517 [INFO] Synchronizing 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 17:03:19,493 [INFO] Successfully synchronized 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 17:03:21,996 [INFO] Synchronizing 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 17:03:38,884 [INFO] Successfully synchronized 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 17:03:41,388 [INFO] Synchronizing 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 17:03:58,394 [INFO] Successfully synchronized 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 17:04:00,897 [INFO] Synchronizing 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 17:04:17,812 [INFO] Successfully synchronized 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 17:04:20,315 [INFO] Synchronizing 1087: Vote NAY
-2024-09-08 17:04:37,320 [INFO] Successfully synchronized 1087: Vote NAY
-2024-09-08 17:04:39,823 [INFO] Synchronizing 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
-2024-09-08 17:04:56,818 [INFO] Successfully synchronized 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
-2024-09-08 17:04:59,322 [INFO] Synchronizing 1085: The Modern Market Show Headline Sponsorship - 6 Months
-2024-09-08 17:05:16,512 [INFO] Successfully synchronized 1085: The Modern Market Show Headline Sponsorship - 6 Months
-2024-09-08 17:05:19,015 [INFO] Synchronizing 1083: [Medium Spender] Open-source KYT on Dot #1083
-2024-09-08 17:05:36,590 [INFO] Successfully synchronized 1083: [Medium Spender] Open-source KYT on Dot #1083
-2024-09-08 17:05:39,093 [INFO] Synchronizing 1074: Changes to PAL Security Bounty
-2024-09-08 17:05:55,222 [INFO] Successfully synchronized 1074: Changes to PAL Security Bounty
-2024-09-08 17:05:57,724 [INFO] synchronization complete
-2024-09-08 17:47:03,308 [INFO] Shard ID None has successfully RESUMED session e3aae34dd4e6859f0428b555cade3f07.
-2024-09-08 17:53:42,842 [INFO] recheck_proposals task is running
-2024-09-08 17:53:42,844 [INFO] Initializing SubstrateAPI
-2024-09-08 17:54:40,308 [INFO] recheck_proposals complete
-2024-09-08 18:24:56,120 [INFO] Shard ID None has successfully RESUMED session e3aae34dd4e6859f0428b555cade3f07.
-2024-09-08 18:51:29,697 [INFO] Shard ID None has successfully RESUMED session e3aae34dd4e6859f0428b555cade3f07.
-2024-09-08 18:53:42,824 [INFO] recheck_proposals task is running
-2024-09-08 18:53:42,825 [INFO] Initializing SubstrateAPI
-2024-09-08 18:53:47,979 [INFO] Synchronizing embeds
-2024-09-08 18:53:47,980 [INFO] 38 threads to synchronize
-2024-09-08 18:53:47,981 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 18:54:06,570 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 18:54:09,071 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 18:54:24,241 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 18:54:26,743 [INFO] Synchronizing 1133: None
-2024-09-08 18:54:42,526 [INFO] Successfully synchronized 1133: None
-2024-09-08 18:54:45,028 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 18:54:56,707 [INFO] recheck_proposals complete
-2024-09-08 18:55:00,187 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 18:55:02,691 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 18:55:18,719 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 18:55:21,222 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 18:55:36,947 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 18:55:39,450 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 18:55:59,681 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 18:56:02,184 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 18:56:17,666 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 18:56:20,169 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 18:56:36,534 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 18:56:39,037 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 18:56:55,553 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 18:56:58,056 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 18:57:19,738 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 18:57:22,241 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 18:57:38,006 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 18:57:40,509 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 18:57:56,951 [INFO] Successfully synchronized 1119: Coretime Notifications
-2024-09-08 18:57:59,454 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 18:58:15,899 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 18:58:18,402 [INFO] Synchronizing 1117: Please vote nay
-2024-09-08 18:58:33,207 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 18:58:33,214 [INFO] Initializing SubstrateAPI
-2024-09-08 18:58:37,899 [WARNING] Preimage is still missing
-2024-09-08 18:58:37,900 [INFO] Successfully synchronized 1117: Please vote nay
-2024-09-08 18:58:40,403 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 18:58:57,367 [INFO] Successfully synchronized 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 18:58:59,870 [INFO] Synchronizing 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 18:59:16,938 [INFO] Successfully synchronized 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 18:59:19,442 [INFO] Synchronizing 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 18:59:41,354 [INFO] Successfully synchronized 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 18:59:43,857 [INFO] Synchronizing 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:00:01,457 [INFO] Successfully synchronized 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:00:03,961 [INFO] Synchronizing 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:00:29,331 [INFO] Successfully synchronized 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:00:31,837 [INFO] Synchronizing 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:00:49,654 [INFO] Successfully synchronized 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:00:52,157 [INFO] Synchronizing 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:01:11,779 [INFO] Successfully synchronized 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:01:14,282 [INFO] Synchronizing 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:01:34,145 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:01:34,153 [INFO] Initializing SubstrateAPI
-2024-09-08 19:01:41,026 [WARNING] Preimage is still missing
-2024-09-08 19:01:41,027 [INFO] Successfully synchronized 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:01:43,530 [INFO] Synchronizing 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:02:02,890 [INFO] Successfully synchronized 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:02:05,393 [INFO] Synchronizing 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:02:28,608 [INFO] Successfully synchronized 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:02:31,110 [INFO] Synchronizing 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:02:47,271 [INFO] Successfully synchronized 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:02:49,774 [INFO] Synchronizing 1102: Kheopswap retroactive funding
-2024-09-08 19:03:08,176 [INFO] Successfully synchronized 1102: Kheopswap retroactive funding
-2024-09-08 19:03:10,679 [INFO] Synchronizing 1098: Bounty Cleanup
-2024-09-08 19:03:30,381 [INFO] Successfully synchronized 1098: Bounty Cleanup
-2024-09-08 19:03:32,882 [INFO] Synchronizing 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:03:51,021 [INFO] Successfully synchronized 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:03:53,523 [INFO] Synchronizing 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 19:04:07,796 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
+2024-09-08 21:09:49,457 [INFO] Creating thread on Discord: #1133 None
+2024-09-08 21:09:49,749 [INFO] Thread created: 1282447830874591405
+2024-09-08 21:09:53,744 [INFO] Vote results message added instruction message added for 1133
+2024-09-08 21:10:11,720 [INFO] Initializing SubstrateAPI
+2024-09-08 21:10:17,667 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1135&proposalType=referendums_v2
+2024-09-08 21:10:17,668 [INFO] Creating thread on Discord: #1135 EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180DaysOfPolka
+2024-09-08 21:10:17,921 [INFO] Thread created: 1282447948793516093
+2024-09-08 21:10:22,555 [INFO] Vote results message added instruction message added for 1135
+2024-09-08 21:10:44,855 [INFO] Initializing SubstrateAPI
+2024-09-08 21:10:50,717 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1136&proposalType=referendums_v2
+2024-09-08 21:10:50,718 [INFO] Creating thread on Discord: #1136 Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
+2024-09-08 21:10:51,019 [INFO] Thread created: 1282448087746478181
+2024-09-08 21:10:54,710 [INFO] Vote results message added instruction message added for 1136
+2024-09-08 21:11:12,822 [INFO] Initializing SubstrateAPI
+2024-09-08 21:11:16,592 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1137&proposalType=referendums_v2
+2024-09-08 21:11:16,592 [INFO] Creating thread on Discord: #1137 Polkadot's Economics Parameters: Proposal 1 (10% constant total inflation)
+2024-09-08 21:11:16,862 [INFO] Thread created: 1282448196202922076
+2024-09-08 21:11:20,517 [INFO] Vote results message added instruction message added for 1137
+2024-09-08 21:11:38,976 [INFO] Initializing SubstrateAPI
+2024-09-08 21:11:45,494 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1138&proposalType=referendums_v2
+2024-09-08 21:11:45,494 [INFO] Creating thread on Discord: #1138 Polkadot's Economics Parameters: Proposal 2 (8% constant total inflation)
+2024-09-08 21:11:45,771 [INFO] Thread created: 1282448317116186625
+2024-09-08 21:11:49,207 [INFO] Vote results message added instruction message added for 1138
+2024-09-08 21:12:07,417 [INFO] Initializing SubstrateAPI
+2024-09-08 21:12:11,146 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1139&proposalType=referendums_v2
+2024-09-08 21:12:11,146 [INFO] Creating thread on Discord: #1139 Polkadot's Economics Parameters: Proposal 3 (8% total inflation in the first year, then gradual
+2024-09-08 21:12:11,427 [INFO] Thread created: 1282448424909803583
+2024-09-08 21:12:14,989 [INFO] Vote results message added instruction message added for 1139
+2024-09-08 21:12:35,085 [INFO] Initializing SubstrateAPI
+2024-09-08 21:12:38,741 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1140&proposalType=referendums_v2
+2024-09-08 21:12:38,741 [INFO] Creating thread on Discord: #1140 Staking Rewards Partnership - Stake App & Terminal Integration
+2024-09-08 21:12:39,085 [INFO] Thread created: 1282448540806811842
+2024-09-08 21:12:42,735 [INFO] Vote results message added instruction message added for 1140
+2024-09-08 21:12:58,765 [INFO] Initializing SubstrateAPI
+2024-09-08 21:13:04,261 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1141&proposalType=referendums_v2
+2024-09-08 21:13:04,262 [INFO] Creating thread on Discord: #1141 Growing the Music Vertical on Polkadot: Onboarding Billfold
+2024-09-08 21:13:04,859 [INFO] Thread created: 1282448647929331830
+2024-09-08 21:13:08,682 [INFO] Vote results message added instruction message added for 1141
+2024-09-08 21:13:28,513 [INFO] Initializing SubstrateAPI
+2024-09-08 21:13:32,964 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1142&proposalType=referendums_v2
+2024-09-08 21:13:32,964 [INFO] Creating thread on Discord: #1142 Duplicate - vote NAY
+2024-09-08 21:13:33,396 [INFO] Thread created: 1282448768389742685
+2024-09-08 21:13:38,928 [INFO] Vote results message added instruction message added for 1142
+2024-09-08 21:13:55,406 [INFO] Initializing SubstrateAPI
+2024-09-08 21:13:59,719 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1143&proposalType=referendums_v2
+2024-09-08 21:13:59,719 [INFO] Creating thread on Discord: #1143 [Whitelisted Caller] Upgrade Polkadot to v1.3.x (transition to Agile Coretime)
+2024-09-08 21:13:59,960 [INFO] Thread created: 1282448880327327837
+2024-09-08 21:14:03,974 [INFO] Vote results message added instruction message added for 1143
+2024-09-08 21:14:24,100 [INFO] Initializing SubstrateAPI
+2024-09-08 21:14:31,582 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1144&proposalType=referendums_v2
+2024-09-08 21:14:31,582 [INFO] Creating thread on Discord: #1144 Fellowship: Retain bkchr at rank 6
+2024-09-08 21:14:31,808 [INFO] Thread created: 1282449014020903014
+2024-09-08 21:14:35,497 [INFO] Vote results message added instruction message added for 1144
+2024-09-08 21:14:55,087 [INFO] Initializing SubstrateAPI
+2024-09-08 21:15:02,115 [INFO] Getting on-chain data from: https://api.polkassembly.io/api/v1/posts/on-chain-post?postId=1145&proposalType=referendums_v2
+2024-09-08 21:15:02,115 [INFO] Creating thread on Discord: #1145 Test
+2024-09-08 21:15:02,333 [INFO] Thread created: 1282449142047703050
+2024-09-08 21:15:06,034 [INFO] Vote results message added instruction message added for 1145
+2024-09-08 21:15:23,989 [INFO] Initializing SubstrateAPI
+2024-09-08 21:15:28,837 [INFO] Starting stopped tasks
+2024-09-08 21:15:28,837 [INFO] Task successfully started
+2024-09-08 21:15:28,837 [INFO] Starting stopped tasks
+2024-09-08 21:15:28,837 [INFO] Task successfully started
+2024-09-08 21:15:28,837 [INFO] Starting stopped tasks
+2024-09-08 21:15:28,837 [INFO] Task successfully started
+2024-09-08 21:15:28,841 [INFO] Stopping tasks
+2024-09-08 21:15:28,842 [INFO] recheck_proposals task is running
+2024-09-08 21:15:28,842 [INFO] Task successfully stopped
+2024-09-08 21:15:28,842 [INFO] Stopping tasks
+2024-09-08 21:15:28,843 [INFO] Task successfully stopped
+2024-09-08 21:15:28,847 [INFO] autonomous_voting task is running
+2024-09-08 21:15:37,447 [INFO] Checking Discord vote results for: 1074
+2024-09-08 21:15:37,447 [INFO] Result: Vote period has ended.
+2024-09-08 21:15:46,029 [INFO] Checking Discord vote results for: 1083
+2024-09-08 21:15:46,029 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:15:46,031 [INFO] Result: abstain
+2024-09-08 21:15:56,939 [INFO] Checking Discord vote results for: 1085
+2024-09-08 21:15:56,939 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:15:56,939 [INFO] Result: abstain
+2024-09-08 21:16:07,919 [INFO] Checking Discord vote results for: 1086
+2024-09-08 21:16:07,919 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:16:07,921 [INFO] Result: abstain
+2024-09-08 21:16:16,807 [INFO] Checking Discord vote results for: 1087
+2024-09-08 21:16:16,808 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:16:16,808 [INFO] Result: abstain
+2024-09-08 21:16:27,545 [INFO] Checking Discord vote results for: 1089
+2024-09-08 21:16:27,545 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:16:27,545 [INFO] Result: abstain
+2024-09-08 21:16:36,405 [INFO] Checking Discord vote results for: 1090
+2024-09-08 21:16:36,405 [WARNING] Participation too low, defaulting to Abstain
+2024-09-08 21:16:36,405 [INFO] Result: abstain
+2024-09-08 21:16:45,850 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
 Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
     addrinfo_list = socket.getaddrinfo(
@@ -544,7 +364,7 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
     raise WebSocketAddressException(e)
 websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:04:07,800 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
+2024-09-08 21:16:45,850 [ERROR] An unexpected error occurred: [Errno -5] No address associated with hostname
 Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
     addrinfo_list = socket.getaddrinfo(
@@ -555,11 +375,9 @@ socket.gaierror: [Errno -5] No address associated with hostname
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
+  File "/app/bot/main.py", line 397, in autonomous_voting
+    proposal_block_epoch = await substrate.get_block_epoch(block_number=proposal_block_submitted)
+  File "/app/bot/utils/subquery.py", line 413, in get_block_epoch
     substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
   File "/app/bot/utils/subquery.py", line 25, in _connect
     return SubstrateInterface(
@@ -576,44 +394,11 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
     raise WebSocketAddressException(e)
 websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:04:07,801 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:04:15,678 [INFO] Synchronizing embeds
-2024-09-08 19:04:15,679 [INFO] 38 threads to synchronize
-2024-09-08 19:04:15,679 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:04:34,545 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:04:37,048 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:04:53,733 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:04:56,234 [INFO] Synchronizing 1133: None
-2024-09-08 19:05:12,511 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:05:15,014 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:05:31,330 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:05:33,833 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:05:54,802 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:05:57,305 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:06:18,413 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:06:20,916 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:06:37,847 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:06:40,350 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:06:57,293 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:06:59,796 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:07:18,031 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:07:20,533 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:07:36,907 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:07:39,410 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:07:55,355 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:07:57,858 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:08:15,231 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:08:17,734 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 19:08:34,646 [INFO] Successfully synchronized 1119: Coretime Notifications
-2024-09-08 19:08:37,149 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:08:52,969 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:08:55,472 [INFO] Synchronizing 1117: Please vote nay
-2024-09-08 19:09:10,219 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:09:10,230 [INFO] Initializing SubstrateAPI
-2024-09-08 19:09:15,820 [WARNING] Preimage is still missing
-2024-09-08 19:09:15,820 [INFO] Successfully synchronized 1117: Please vote nay
-2024-09-08 19:09:18,323 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 19:09:36,821 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
+2024-09-08 21:16:45,851 [INFO] Starting stopped tasks
+2024-09-08 21:16:45,851 [INFO] Task successfully started
+2024-09-08 21:16:45,851 [INFO] Starting stopped tasks
+2024-09-08 21:16:45,851 [INFO] Task successfully started
+2024-09-08 21:16:45,851 [ERROR] Unhandled exception in internal background task 'autonomous_voting'.
 Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
     addrinfo_list = socket.getaddrinfo(
@@ -624,37 +409,13 @@ socket.gaierror: [Errno -5] No address associated with hostname
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:09:36,821 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
+  File "/usr/local/lib/python3.9/site-packages/discord/ext/tasks/__init__.py", line 239, in _loop
+    await self.coro(*args, **kwargs)
+  File "/app/bot/main.py", line 575, in autonomous_voting
+    raise error
+  File "/app/bot/main.py", line 397, in autonomous_voting
+    proposal_block_epoch = await substrate.get_block_epoch(block_number=proposal_block_submitted)
+  File "/app/bot/utils/subquery.py", line 413, in get_block_epoch
     substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
   File "/app/bot/utils/subquery.py", line 25, in _connect
     return SubstrateInterface(
@@ -671,564 +432,115 @@ Traceback (most recent call last):
   File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
     raise WebSocketAddressException(e)
 websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:09:36,822 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:09:47,404 [INFO] Synchronizing embeds
-2024-09-08 19:09:47,404 [INFO] 38 threads to synchronize
-2024-09-08 19:09:47,404 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:10:03,757 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:10:06,260 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:10:22,714 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:10:25,217 [INFO] Synchronizing 1133: None
-2024-09-08 19:10:44,786 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:10:47,288 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:11:04,131 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:11:06,634 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:11:23,954 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:11:26,457 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:11:43,153 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:11:45,656 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:12:02,975 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:12:05,478 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:12:21,515 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:12:24,018 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:12:40,039 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:12:42,542 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:12:59,074 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:13:01,577 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:13:19,107 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:13:21,610 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:13:40,645 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:13:40,645 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
-    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:13:40,646 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:13:49,868 [INFO] Synchronizing embeds
-2024-09-08 19:13:49,869 [INFO] 38 threads to synchronize
-2024-09-08 19:13:49,869 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:14:07,864 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:14:10,367 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:14:28,719 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:14:31,222 [INFO] Synchronizing 1133: None
-2024-09-08 19:14:48,479 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:14:50,982 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:15:07,568 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:15:10,071 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:15:27,559 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:15:30,062 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:15:50,713 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:15:53,217 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:16:11,854 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:16:14,357 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:16:35,096 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:16:37,599 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:16:54,699 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:16:57,202 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:17:13,843 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:17:16,346 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:17:35,039 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:17:37,542 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:17:55,443 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:17:57,946 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 19:18:14,008 [INFO] Successfully synchronized 1119: Coretime Notifications
-2024-09-08 19:18:16,511 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:18:32,840 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:18:35,343 [INFO] Synchronizing 1117: Please vote nay
-2024-09-08 19:18:50,183 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:18:50,189 [INFO] Initializing SubstrateAPI
-2024-09-08 19:18:54,873 [WARNING] Preimage is still missing
-2024-09-08 19:18:54,874 [INFO] Successfully synchronized 1117: Please vote nay
-2024-09-08 19:18:57,378 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 19:19:14,795 [INFO] Successfully synchronized 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 19:19:17,298 [INFO] Synchronizing 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 19:19:34,008 [INFO] Successfully synchronized 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 19:19:36,511 [INFO] Synchronizing 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 19:19:53,374 [INFO] Successfully synchronized 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 19:19:55,877 [INFO] Synchronizing 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:20:14,613 [INFO] Successfully synchronized 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:20:17,116 [INFO] Synchronizing 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:20:33,962 [INFO] Successfully synchronized 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:20:36,465 [INFO] Synchronizing 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:20:52,964 [INFO] Successfully synchronized 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:20:55,467 [INFO] Synchronizing 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:21:11,959 [INFO] Successfully synchronized 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:21:14,462 [INFO] Synchronizing 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:21:31,464 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:21:31,469 [INFO] Initializing SubstrateAPI
-2024-09-08 19:21:35,938 [WARNING] Preimage is still missing
-2024-09-08 19:21:35,939 [INFO] Successfully synchronized 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:21:38,442 [INFO] Synchronizing 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:21:56,149 [INFO] Successfully synchronized 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:21:58,652 [INFO] Synchronizing 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:22:15,901 [INFO] Successfully synchronized 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:22:18,404 [INFO] Synchronizing 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:22:35,343 [INFO] Successfully synchronized 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:22:37,846 [INFO] Synchronizing 1102: Kheopswap retroactive funding
-2024-09-08 19:22:55,588 [INFO] Successfully synchronized 1102: Kheopswap retroactive funding
-2024-09-08 19:22:58,091 [INFO] Synchronizing 1098: Bounty Cleanup
-2024-09-08 19:23:15,459 [INFO] Successfully synchronized 1098: Bounty Cleanup
-2024-09-08 19:23:17,962 [INFO] Synchronizing 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:23:37,093 [INFO] Successfully synchronized 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:23:39,596 [INFO] Synchronizing 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 19:23:57,257 [INFO] Successfully synchronized 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 19:23:59,760 [INFO] Synchronizing 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 19:24:18,161 [INFO] Successfully synchronized 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 19:24:20,663 [INFO] Synchronizing 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 19:24:38,828 [INFO] Successfully synchronized 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 19:24:41,331 [INFO] Synchronizing 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 19:24:59,707 [INFO] Successfully synchronized 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 19:25:02,210 [INFO] Synchronizing 1087: Vote NAY
-2024-09-08 19:25:18,706 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:25:18,706 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
-    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:25:18,711 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:25:27,965 [INFO] Synchronizing embeds
-2024-09-08 19:25:27,969 [INFO] 38 threads to synchronize
-2024-09-08 19:25:27,969 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:25:47,669 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:25:50,172 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:26:08,740 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:26:11,243 [INFO] Synchronizing 1133: None
-2024-09-08 19:26:28,059 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:26:30,562 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:26:41,963 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:26:41,963 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
-    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:26:41,964 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:26:52,054 [INFO] Synchronizing embeds
-2024-09-08 19:26:52,054 [INFO] 38 threads to synchronize
-2024-09-08 19:26:52,055 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:27:09,113 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:27:11,616 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:27:28,690 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:27:31,192 [INFO] Synchronizing 1133: None
-2024-09-08 19:27:46,697 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:27:49,200 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:28:06,210 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:28:08,713 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:28:25,739 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:28:28,242 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:28:45,263 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:28:47,765 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:29:06,263 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:29:06,264 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
-    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:29:06,264 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:29:16,179 [INFO] Synchronizing embeds
-2024-09-08 19:29:16,180 [INFO] 38 threads to synchronize
-2024-09-08 19:29:16,180 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:29:32,794 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:29:35,297 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:29:52,014 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:29:54,517 [INFO] Synchronizing 1133: None
-2024-09-08 19:30:12,557 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:30:15,060 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:30:34,591 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:30:37,092 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:30:56,195 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:30:58,698 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:31:04,936 [INFO] Stopping tasks
-2024-09-08 19:31:04,937 [INFO] Task successfully stopped
-2024-09-08 19:31:04,944 [INFO] Stopping tasks
-2024-09-08 19:31:04,944 [INFO] Task successfully stopped
-2024-09-08 19:31:04,945 [INFO] Checking for new proposals
-2024-09-08 19:31:04,945 [INFO] Initializing SubstrateAPI
-2024-09-08 19:31:10,786 [INFO] Checking active proposals from polkadot against vote_counts.json to archive threads where the proposal is no longer active
-2024-09-08 19:31:19,146 [INFO] No threads to lock
-2024-09-08 19:31:19,146 [INFO] No new proposals have been found since last checking
-2024-09-08 19:31:19,146 [INFO] Starting stopped tasks
-2024-09-08 19:31:19,147 [INFO] Task successfully started
-2024-09-08 19:31:19,147 [INFO] Starting stopped tasks
-2024-09-08 19:31:19,147 [INFO] Task successfully started
-2024-09-08 19:31:19,148 [INFO] recheck_proposals task is running
-2024-09-08 19:31:19,149 [INFO] Initializing SubstrateAPI
-2024-09-08 19:31:27,518 [INFO] Synchronizing embeds
-2024-09-08 19:31:27,518 [INFO] 38 threads to synchronize
-2024-09-08 19:31:27,519 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:31:46,198 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:31:48,701 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:32:06,049 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:32:08,550 [INFO] Synchronizing 1133: None
-2024-09-08 19:32:25,477 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:32:27,978 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:32:28,506 [INFO] recheck_proposals complete
-2024-09-08 19:32:45,146 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:32:47,649 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:33:06,080 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:33:08,583 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:33:29,395 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:33:31,898 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:33:47,691 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:33:50,192 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:34:05,974 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:34:08,477 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:34:27,277 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:34:29,780 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:34:45,541 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:34:48,044 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:35:04,395 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:35:06,898 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:35:24,089 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:35:26,592 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 19:35:38,691 [ERROR] An error occurred while initializing the Substrate connection: (gaierror(-5, 'No address associated with hostname'),)
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:35:38,692 [ERROR] An error occurred whilst synchronizing embeds: [Errno -5] No address associated with hostname
-Traceback (most recent call last):
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 176, in _get_addrinfo_list
-    addrinfo_list = socket.getaddrinfo(
-  File "/usr/local/lib/python3.9/socket.py", line 954, in getaddrinfo
-    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
-socket.gaierror: [Errno -5] No address associated with hostname
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/app/bot/main.py", line 297, in sync_embeds
-    general_info = await discord_format.add_fields_to_embed(general_info_embed, referendum_info[index])
-  File "/app/bot/utils/data_processing.py", line 506, in add_fields_to_embed
-    valid_address = await self.substrate.check_ss58_address(address=value)
-  File "/app/bot/utils/subquery.py", line 112, in check_ss58_address
-    substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-  File "/app/bot/utils/subquery.py", line 25, in _connect
-    return SubstrateInterface(
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 133, in __init__
-    self.connect_websocket()
-  File "/usr/local/lib/python3.9/site-packages/substrateinterface/base.py", line 183, in connect_websocket
-    self.websocket = create_connection(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 646, in create_connection
-    websock.connect(url, **options)
-  File "/usr/local/lib/python3.9/site-packages/websocket/_core.py", line 256, in connect
-    self.sock, addrs = connect(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 137, in connect
-    addrinfo_list, need_tunnel, auth = _get_addrinfo_list(
-  File "/usr/local/lib/python3.9/site-packages/websocket/_http.py", line 191, in _get_addrinfo_list
-    raise WebSocketAddressException(e)
-websocket._exceptions.WebSocketAddressException: [Errno -5] No address associated with hostname
-2024-09-08 19:35:38,692 [INFO] Waiting 3 seconds before restarting task loop
-2024-09-08 19:35:49,323 [INFO] Synchronizing embeds
-2024-09-08 19:35:49,324 [INFO] 38 threads to synchronize
-2024-09-08 19:35:49,324 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:36:07,447 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
-2024-09-08 19:36:09,950 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:36:27,861 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
-2024-09-08 19:36:30,365 [INFO] Synchronizing 1133: None
-2024-09-08 19:36:47,337 [INFO] Successfully synchronized 1133: None
-2024-09-08 19:36:49,840 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:37:09,737 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
-2024-09-08 19:37:12,239 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:37:29,487 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
-2024-09-08 19:37:31,990 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:37:48,986 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
-2024-09-08 19:37:51,489 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:38:11,317 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
-2024-09-08 19:38:13,820 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:38:32,088 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
-2024-09-08 19:38:34,591 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:38:52,238 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
-2024-09-08 19:38:54,741 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:39:10,865 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
-2024-09-08 19:39:13,368 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:39:29,360 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
-2024-09-08 19:39:31,863 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:39:51,694 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
-2024-09-08 19:39:54,197 [INFO] Synchronizing 1119: Coretime Notifications
-2024-09-08 19:40:11,886 [INFO] Successfully synchronized 1119: Coretime Notifications
-2024-09-08 19:40:14,389 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:40:31,298 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
-2024-09-08 19:40:33,799 [INFO] Synchronizing 1117: Please vote nay
-2024-09-08 19:40:49,857 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:40:49,867 [INFO] Initializing SubstrateAPI
-2024-09-08 19:40:53,626 [WARNING] Preimage is still missing
-2024-09-08 19:40:53,628 [INFO] Successfully synchronized 1117: Please vote nay
-2024-09-08 19:40:56,129 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 19:41:14,063 [INFO] Successfully synchronized 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
-2024-09-08 19:41:16,566 [INFO] Synchronizing 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 19:41:33,821 [INFO] Successfully synchronized 1115: FiDi | Polkadot’s Code-Free Intelligence
-2024-09-08 19:41:36,324 [INFO] Synchronizing 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 19:41:52,720 [INFO] Successfully synchronized 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
-2024-09-08 19:41:55,223 [INFO] Synchronizing 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:42:11,862 [INFO] Successfully synchronized 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
-2024-09-08 19:42:14,364 [INFO] Synchronizing 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:42:30,893 [INFO] Successfully synchronized 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
-2024-09-08 19:42:33,396 [INFO] Synchronizing 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:42:54,765 [INFO] Successfully synchronized 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
-2024-09-08 19:42:57,268 [INFO] Synchronizing 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:43:18,798 [INFO] Successfully synchronized 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
-2024-09-08 19:43:21,301 [INFO] Synchronizing 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:43:38,677 [INFO] Checking if preimage has been stored on-chain
-2024-09-08 19:43:38,683 [INFO] Initializing SubstrateAPI
-2024-09-08 19:43:43,337 [WARNING] Preimage is still missing
-2024-09-08 19:43:43,337 [INFO] Successfully synchronized 1108: Wrong Call Data Please Vote NAY
-2024-09-08 19:43:45,840 [INFO] Synchronizing 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:44:04,787 [INFO] Successfully synchronized 1106: CoinGecko - Polkadot Campaign
-2024-09-08 19:44:07,290 [INFO] Synchronizing 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:44:24,752 [INFO] Successfully synchronized 1104: Convert Part of DOT Assets to Stablecoins
-2024-09-08 19:44:27,255 [INFO] Synchronizing 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:44:45,470 [INFO] Successfully synchronized 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
-2024-09-08 19:44:47,972 [INFO] Synchronizing 1102: Kheopswap retroactive funding
-2024-09-08 19:45:08,834 [INFO] Successfully synchronized 1102: Kheopswap retroactive funding
-2024-09-08 19:45:11,337 [INFO] Synchronizing 1098: Bounty Cleanup
-2024-09-08 19:45:33,511 [INFO] Successfully synchronized 1098: Bounty Cleanup
-2024-09-08 19:45:36,012 [INFO] Synchronizing 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:45:55,275 [INFO] Successfully synchronized 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
-2024-09-08 19:45:57,778 [INFO] Synchronizing 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 19:46:17,424 [INFO] Successfully synchronized 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
-2024-09-08 19:46:19,927 [INFO] Synchronizing 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 19:46:39,557 [INFO] Successfully synchronized 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
-2024-09-08 19:46:42,060 [INFO] Synchronizing 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 19:47:05,258 [INFO] Successfully synchronized 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
-2024-09-08 19:47:07,761 [INFO] Synchronizing 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 19:47:27,922 [INFO] Successfully synchronized 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
-2024-09-08 19:47:30,423 [INFO] Synchronizing 1087: Vote NAY
-2024-09-08 19:47:48,071 [INFO] Successfully synchronized 1087: Vote NAY
-2024-09-08 19:47:50,574 [INFO] Synchronizing 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
-2024-09-08 19:48:08,837 [INFO] Successfully synchronized 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
-2024-09-08 19:48:11,337 [INFO] Synchronizing 1085: The Modern Market Show Headline Sponsorship - 6 Months
-2024-09-08 19:48:33,455 [INFO] Successfully synchronized 1085: The Modern Market Show Headline Sponsorship - 6 Months
-2024-09-08 19:48:35,958 [INFO] Synchronizing 1083: [Medium Spender] Open-source KYT on Dot #1083
-2024-09-08 19:48:54,276 [INFO] Successfully synchronized 1083: [Medium Spender] Open-source KYT on Dot #1083
-2024-09-08 19:48:56,779 [INFO] Synchronizing 1074: Changes to PAL Security Bounty
-2024-09-08 19:49:15,320 [INFO] Successfully synchronized 1074: Changes to PAL Security Bounty
-2024-09-08 19:49:17,823 [INFO] synchronization complete
+2024-09-08 21:16:45,852 [INFO] recheck_proposals task is running
+2024-09-08 21:16:45,854 [INFO] Initializing SubstrateAPI
+2024-09-08 21:16:54,201 [INFO] Synchronizing embeds
+2024-09-08 21:16:54,201 [INFO] 47 threads to synchronize
+2024-09-08 21:16:54,201 [INFO] Synchronizing 1145: Test
+2024-09-08 21:17:11,194 [INFO] Successfully synchronized 1145: Test
+2024-09-08 21:17:13,695 [INFO] Synchronizing 1144: Fellowship: Retain bkchr at rank 6
+2024-09-08 21:17:32,199 [INFO] Successfully synchronized 1144: Fellowship: Retain bkchr at rank 6
+2024-09-08 21:17:34,700 [INFO] Synchronizing 1143: [Whitelisted Caller] Upgrade Polkadot to v1.3.x (transition to Agile Coretime)
+2024-09-08 21:17:52,419 [INFO] Successfully synchronized 1143: [Whitelisted Caller] Upgrade Polkadot to v1.3.x (transition to Agile Coretime)
+2024-09-08 21:17:54,921 [INFO] Synchronizing 1142: Duplicate - vote NAY
+2024-09-08 21:18:10,879 [INFO] recheck_proposals complete
+2024-09-08 21:18:11,026 [INFO] Successfully synchronized 1142: Duplicate - vote NAY
+2024-09-08 21:18:13,529 [INFO] Synchronizing 1141: Growing the Music Vertical on Polkadot: Onboarding Billfold
+2024-09-08 21:18:32,332 [INFO] Successfully synchronized 1141: Growing the Music Vertical on Polkadot: Onboarding Billfold
+2024-09-08 21:18:34,835 [INFO] Synchronizing 1140: Staking Rewards Partnership - Stake App & Terminal Integration
+2024-09-08 21:18:54,962 [INFO] Successfully synchronized 1140: Staking Rewards Partnership - Stake App & Terminal Integration
+2024-09-08 21:18:57,465 [INFO] Synchronizing 1139: Polkadot's Economics Parameters: Proposal 3 (8% total inflation in the first year, the...
+2024-09-08 21:19:15,562 [INFO] Successfully synchronized 1139: Polkadot's Economics Parameters: Proposal 3 (8% total inflation in the first year, the...
+2024-09-08 21:19:18,065 [INFO] Synchronizing 1138: Polkadot's Economics Parameters: Proposal 2 (8% constant total inflation)
+2024-09-08 21:19:35,895 [INFO] Successfully synchronized 1138: Polkadot's Economics Parameters: Proposal 2 (8% constant total inflation)
+2024-09-08 21:19:38,399 [INFO] Synchronizing 1137: Polkadot's Economics Parameters: Proposal 1 (10% constant total inflation)
+2024-09-08 21:19:56,927 [INFO] Successfully synchronized 1137: Polkadot's Economics Parameters: Proposal 1 (10% constant total inflation)
+2024-09-08 21:19:59,429 [INFO] Synchronizing 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
+2024-09-08 21:20:16,423 [INFO] Successfully synchronized 1136: Bitskwela - Expanding Polkadot to the Thriving Philippine Web 3.0 Community
+2024-09-08 21:20:18,926 [INFO] Synchronizing 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
+2024-09-08 21:20:36,055 [INFO] Successfully synchronized 1135: EasyA x Polkadot - Developer Growth via In-Person Hackathons and Crash Courses (#180Da...
+2024-09-08 21:20:38,558 [INFO] Synchronizing 1133: None
+2024-09-08 21:20:54,352 [INFO] Successfully synchronized 1133: None
+2024-09-08 21:20:56,855 [INFO] Synchronizing 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
+2024-09-08 21:21:14,113 [INFO] Successfully synchronized 1132: Polkawatch, Decentralization Analytics, Retroactive Infrastructure and Maintenance Q1-...
+2024-09-08 21:21:16,616 [INFO] Synchronizing 1130: WagMedia - Collective Content Creation for 52 Weeks
+2024-09-08 21:21:33,846 [INFO] Successfully synchronized 1130: WagMedia - Collective Content Creation for 52 Weeks
+2024-09-08 21:21:36,347 [INFO] Synchronizing 1129: [Whitelisted Caller] Increase validator set size to 400
+2024-09-08 21:21:54,257 [INFO] Successfully synchronized 1129: [Whitelisted Caller] Increase validator set size to 400
+2024-09-08 21:21:56,760 [INFO] Synchronizing 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
+2024-09-08 21:22:14,293 [INFO] Checking if preimage has been stored on-chain
+2024-09-08 21:22:14,298 [INFO] Initializing SubstrateAPI
+2024-09-08 21:22:19,353 [WARNING] Preimage is still missing
+2024-09-08 21:22:19,354 [INFO] Successfully synchronized 1128: Retroactive Tip to AwesomeDot Team for high quality technical podcasts
+2024-09-08 21:22:21,857 [INFO] Synchronizing 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
+2024-09-08 21:22:39,184 [INFO] Successfully synchronized 1127: Snowbridge: Update Bridge Pricing Parameters to Lower Transfer Fees
+2024-09-08 21:22:41,687 [INFO] Synchronizing 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
+2024-09-08 21:22:59,296 [INFO] Successfully synchronized 1125: Polkadot Blockchain Academy; PBA-X production and launch, Wave 6 production and execut...
+2024-09-08 21:23:01,800 [INFO] Synchronizing 1123: ink! Alliance for a more successful Plaza
+2024-09-08 21:23:24,515 [INFO] Successfully synchronized 1123: ink! Alliance for a more successful Plaza
+2024-09-08 21:23:27,018 [INFO] Synchronizing 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
+2024-09-08 21:23:44,768 [INFO] Successfully synchronized 1122: Proposal for the Polkadot Community to Earn RWA Yield on Idle Stablecoins via Centrifuge
+2024-09-08 21:23:47,270 [INFO] Synchronizing 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
+2024-09-08 21:24:05,226 [INFO] Successfully synchronized 1121: Alternative Proposal on Blockchain AML/CTF Compliance from GlobalLedger.
+2024-09-08 21:24:07,729 [INFO] Synchronizing 1119: Coretime Notifications
+2024-09-08 21:24:27,119 [INFO] Successfully synchronized 1119: Coretime Notifications
+2024-09-08 21:24:29,622 [INFO] Synchronizing 1118: [Retroactive] SubWallet 08 Months Development
+2024-09-08 21:24:47,700 [INFO] Successfully synchronized 1118: [Retroactive] SubWallet 08 Months Development
+2024-09-08 21:24:50,203 [INFO] Synchronizing 1117: Please vote nay
+2024-09-08 21:25:07,017 [INFO] Checking if preimage has been stored on-chain
+2024-09-08 21:25:07,022 [INFO] Initializing SubstrateAPI
+2024-09-08 21:25:12,085 [WARNING] Preimage is still missing
+2024-09-08 21:25:12,085 [INFO] Successfully synchronized 1117: Please vote nay
+2024-09-08 21:25:14,588 [INFO] Synchronizing 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
+2024-09-08 21:25:33,733 [INFO] Successfully synchronized 1116: Polkadot Virtual Machine (PVM) Formal Specification Development
+2024-09-08 21:25:36,234 [INFO] Synchronizing 1115: FiDi | Polkadot’s Code-Free Intelligence
+2024-09-08 21:25:54,984 [INFO] Successfully synchronized 1115: FiDi | Polkadot’s Code-Free Intelligence
+2024-09-08 21:25:57,488 [INFO] Synchronizing 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
+2024-09-08 21:26:16,005 [INFO] Successfully synchronized 1114: Cyborg Network: Unlocking the Web 2.5 potential of Polkadot with Blockchain powered Ed...
+2024-09-08 21:26:18,507 [INFO] Synchronizing 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
+2024-09-08 21:26:37,503 [INFO] Successfully synchronized 1113: "sub0 RESET" @Devcon Bangkok - back to the roots
+2024-09-08 21:26:40,006 [INFO] Synchronizing 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
+2024-09-08 21:26:58,935 [INFO] Successfully synchronized 1111: 2025 Polkadot Motorsports Program w/ Global Ambassador - Conor Daly
+2024-09-08 21:27:01,438 [INFO] Synchronizing 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
+2024-09-08 21:27:23,867 [INFO] Successfully synchronized 1110: Connecting the DOTS: Training the Next Generation of Blockchain Security Experts
+2024-09-08 21:27:26,369 [INFO] Synchronizing 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
+2024-09-08 21:27:45,362 [INFO] Successfully synchronized 1109: Polkadot AI Navigator: Enhancing User Experience with an Intelligent Ecosystem Assista...
+2024-09-08 21:27:47,865 [INFO] Synchronizing 1108: Wrong Call Data Please Vote NAY
+2024-09-08 21:28:07,228 [INFO] Checking if preimage has been stored on-chain
+2024-09-08 21:28:07,233 [INFO] Initializing SubstrateAPI
+2024-09-08 21:28:12,761 [WARNING] Preimage is still missing
+2024-09-08 21:28:12,762 [INFO] Successfully synchronized 1108: Wrong Call Data Please Vote NAY
+2024-09-08 21:28:15,265 [INFO] Synchronizing 1106: CoinGecko - Polkadot Campaign
+2024-09-08 21:28:33,799 [INFO] Successfully synchronized 1106: CoinGecko - Polkadot Campaign
+2024-09-08 21:28:36,302 [INFO] Synchronizing 1104: Convert Part of DOT Assets to Stablecoins
+2024-09-08 21:28:55,169 [INFO] Successfully synchronized 1104: Convert Part of DOT Assets to Stablecoins
+2024-09-08 21:28:57,672 [INFO] Synchronizing 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
+2024-09-08 21:29:15,493 [INFO] Successfully synchronized 1103: Polkadot-API: Aug 2024 - Jan 2025 development financing
+2024-09-08 21:29:17,996 [INFO] Synchronizing 1102: Kheopswap retroactive funding
+2024-09-08 21:29:37,053 [INFO] Successfully synchronized 1102: Kheopswap retroactive funding
+2024-09-08 21:29:39,556 [INFO] Synchronizing 1098: Bounty Cleanup
+2024-09-08 21:29:58,540 [INFO] Successfully synchronized 1098: Bounty Cleanup
+2024-09-08 21:30:01,043 [INFO] Synchronizing 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
+2024-09-08 21:30:21,654 [INFO] Successfully synchronized 1096: IN IT FOR THE TECH{NO} - Polkadot Opening Party @Token2049, SIngapore
+2024-09-08 21:30:24,157 [INFO] Synchronizing 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
+2024-09-08 21:30:43,711 [INFO] Successfully synchronized 1094: From Pitch to Market: Enhancing Founder Success with PolkaBiz
+2024-09-08 21:30:46,214 [INFO] Synchronizing 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
+2024-09-08 21:31:05,028 [INFO] Successfully synchronized 1092: POLKADOT CHARITY FOUNDATION - Establishment & Inaugural Initiative Launch
+2024-09-08 21:31:07,529 [INFO] Synchronizing 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
+2024-09-08 21:31:26,620 [INFO] Successfully synchronized 1090: B2B Marketing & Sales Enablement For The Polkadot Ecosystem
+2024-09-08 21:31:29,123 [INFO] Synchronizing 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
+2024-09-08 21:31:48,284 [INFO] Successfully synchronized 1089: Resubmission of ref#975 Retroactive Funding Proposal: Completed Remarker Development a...
+2024-09-08 21:31:50,787 [INFO] Synchronizing 1087: Vote NAY
+2024-09-08 21:32:09,716 [INFO] Successfully synchronized 1087: Vote NAY
+2024-09-08 21:32:12,219 [INFO] Synchronizing 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
+2024-09-08 21:32:31,466 [INFO] Successfully synchronized 1086: Polkadot Advertising Campaign on Brave Browser - Top-Up Request - PLEASE SEE COMMENT 9...
+2024-09-08 21:32:33,969 [INFO] Synchronizing 1085: The Modern Market Show Headline Sponsorship - 6 Months
+2024-09-08 21:32:53,609 [INFO] Embedded call data not found, checking if preimage has been stored on-chain
+2024-09-08 21:32:53,615 [INFO] Initializing SubstrateAPI
+2024-09-08 21:32:59,626 [INFO] Embedded call data has now been added
+2024-09-08 21:32:59,627 [INFO] Successfully synchronized 1085: The Modern Market Show Headline Sponsorship - 6 Months
+2024-09-08 21:33:02,129 [INFO] Synchronizing 1083: [Medium Spender] Open-source KYT on Dot #1083
+2024-09-08 21:33:21,238 [INFO] Successfully synchronized 1083: [Medium Spender] Open-source KYT on Dot #1083
+2024-09-08 21:33:23,739 [INFO] Synchronizing 1074: Changes to PAL Security Bounty
+2024-09-08 21:33:46,129 [INFO] Successfully synchronized 1074: Changes to PAL Security Bounty
+2024-09-08 21:33:48,632 [INFO] synchronization complete
