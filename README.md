@@ -45,6 +45,12 @@ pm2 start main.py --name ksmgov2 --interpreter python3
 pm2 save
 ```
 
+## Install with Docker
+```shell
+cd InternalGov-2.0/
+docker-compose up -d
+```
+
 ---
 ## Autonomous voting
 ![alt text](https://i.imgur.com/5d0HJsY.png)  
