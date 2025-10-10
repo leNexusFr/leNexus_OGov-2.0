@@ -1,7 +1,7 @@
 version: '3.1'
 services:
 
-  db:
+  db_kusama:
     image: postgres
     restart: always
     environment:
@@ -10,16 +10,16 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
       POSTGRES_HOST_AUTH_METHOD: scram-sha-256
     volumes:
-      - postgres_data:/var/lib/postgresql/data
+      - kusama_postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
-    container_name: opengov-postgres-container
+      - "5433:5432"
+    container_name: kusama-opengov-postgres
 
   bot:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: opengov--container
+    container_name: kusama-opengov-container
     volumes:
       - ./vol:/app/data/
     restart: always
@@ -27,7 +27,7 @@ services:
       - 8.8.8.8
       - 8.8.4.4
     depends_on:
-      - db
+      - db_kusama
     environment:
       DISCORD_API_KEY: ${DISCORD_API_KEY}  
       DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}
@@ -57,7 +57,7 @@ services:
       VOTE_WITH_BALANCE: ${VOTE_WITH_BALANCE}
 
 volumes:
-  postgres_data:
+  kusama_postgres_data:
 
 
 

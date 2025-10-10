@@ -23,7 +23,7 @@ COPY . .
 WORKDIR /app/bot
 
 # Exposer le port sur lequel l'application s'exécute
-EXPOSE 8080
+EXPOSE 8181
 
 # Commande pour exécuter l'application
 CMD ["pm2-runtime", "start", "main.py", "--interpreter", "python3"]
