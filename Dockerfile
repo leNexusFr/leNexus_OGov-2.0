@@ -1,4 +1,5 @@
-FROM python:3.9-slim
+# Use an official Python image as a base
+FROM python:3.11-slim
 
 RUN apt-get update -y && apt-get upgrade -y && \
     apt-get install -y curl gnupg
@@ -8,7 +9,7 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get install -y nodejs
 
 # Installer PM2 globalement
-RUN npm install pm2 -g	
+RUN npm install pm2 -g
 
 # Définir le répertoire de travail dans le conteneur
 WORKDIR /app
@@ -25,5 +26,5 @@ WORKDIR /app/bot
 # Exposer le port sur lequel l'application s'exécute
 EXPOSE 8181
 
-# Commande pour exécuter l'application
+# Commande pour exécuter l'application avec PM2
 CMD ["pm2-runtime", "start", "main.py", "--interpreter", "python3"]

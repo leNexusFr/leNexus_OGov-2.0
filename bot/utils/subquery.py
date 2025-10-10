@@ -1,11 +1,11 @@
 import os
 import json
 import time
+import random
 import asyncio
 from utils.logger import Logger
 from scalecodec.base import ScaleBytes
-from substrateinterface import SubstrateInterface
-from websocket._exceptions import WebSocketBadStatusException
+from substrateinterface import SubstrateInterface, Keypair
 from substrateinterface.exceptions import SubstrateRequestException, ConfigurationError
 
 
@@ -13,42 +13,116 @@ class SubstrateAPI:
     def __init__(self, config):
         self.config = config
         self.logger = Logger()
-        self.logger.info("Initializing SubstrateAPI")
+        self.substrate = None
+        self.relay_chain = None
+        self.people_chain = None
 
-    async def _connect(self, wss):
-        max_retries = 3
-        wait_seconds = 10
+    async def connect_relay_chain(self):
+        """
+        Establishes a dedicated connection to the relay chain.
+        """
+        if self.relay_chain and self.relay_chain.websocket.connected:
+            # Already connected, just verify it's working
+            try:
+                self.relay_chain.websocket.ping('ping')
+                return self.relay_chain
+            except:
+                # Connection is dead, reset it
+                self.relay_chain.close()
+                self.relay_chain = None
+
+        # Create new connection
+        try:
+            self.logger.info(f"Initializing relay chain connection: {self.config.RELAY_WSS}")
+            self.relay_chain = SubstrateInterface(url=self.config.RELAY_WSS, ws_options={'timeout': 10})
+
+            await asyncio.wait_for(
+                asyncio.to_thread(self.relay_chain.init_runtime),
+                timeout=60
+            )
+
+            self.logger.info(f"Relay chain connected: {self.relay_chain.runtime_version}")
+            return self.relay_chain
+
+        except Exception as error:
+            self.logger.error(f"Failed to connect to relay chain: {error}")
+            raise
+
+    async def connect(self, wss):
+        """Establishes & restores WebSocket connection to the Substrate RPC node with retry mechanism.
+        Returns initialized SubstrateInterface object if successful, raises exception after max retries."""
+        caller_info = self.logger.get_caller_info()
+        max_retries, base_wait = 3, 10
 
         for attempt in range(1, max_retries + 1):
             try:
-                await asyncio.sleep(0.5)
-                return SubstrateInterface(
-                    url=wss,
-                    type_registry_preset=self.config.NETWORK_NAME
-                )
+                if not self.substrate:
+                    self.logger.info(f"{caller_info} - Initializing SubstrateInterface object: {wss}")
+                    self.substrate = SubstrateInterface(url=wss, ws_options={
+                        'timeout':10
+                    })
 
-            except WebSocketBadStatusException as ws_error:
-                self.logger.exception(f"WebSocket error occurred while making a request to Substrate: {ws_error.args}")
+                    await asyncio.wait_for(
+                        asyncio.to_thread(
+                            self.substrate.init_runtime),
+                        timeout=60
+                    )
+                    self.logger.info(f"Runtime successfully initialized: {self.substrate.runtime_version}")
+                    await self.websocket_info()
 
-                if attempt < max_retries:  # If the current attempt is less than max_retries.
-                    self.logger.info(f"Retrying in {wait_seconds} seconds... (Attempt {attempt}/{max_retries})")
-                    await asyncio.sleep(wait_seconds)
-                    raise
-                else:  # If we reached max_retries and couldn't establish a connection.
-                    self.logger.error("Max retries reached. Could not establish a connection.")
-                    raise
+                # Check if the WebSocket connection is still active
+                if not self.substrate.websocket.connected:
+                    self.logger.info("Reconnecting WebSocket... please wait")
+                    await asyncio.to_thread(self.substrate.connect_websocket)
+                    await asyncio.wait_for(
+                        asyncio.to_thread(
+                            self.substrate.init_runtime),
+                        timeout=60
+                    )
+                    self.logger.info(f"Runtime successfully initialized: {self.substrate.runtime_version}")
+                    await self.websocket_info()
 
-            except SubstrateRequestException as req_error:
-                self.logger.exception(f"An error occurred while making a request to Substrate: {req_error.args}")
-                raise
-
-            except ConfigurationError as config_error:
-                self.logger.exception(f"Config error: {config_error.args}")
-                raise
+                self.substrate.websocket.ping('ping')
+                return self.substrate
 
             except Exception as error:
-                self.logger.exception(f"An error occurred while initializing the Substrate connection: {error.args}")
-                raise
+                error_msg = f"An unexpected error has occurred on connect() - {error}"
+                await self.on_connection_error_retry(error_msg, attempt, max_retries, base_wait, error)
+
+    async def websocket_info(self):
+        """Logs WebSocket connection details and runtime information."""
+        self.logger.info(f"Connected: {self.substrate.websocket.connected}")
+        self.logger.info(f"Peer: {self.substrate.websocket.sock.getpeername()}")
+        self.logger.info(f"Cipher: {self.substrate.websocket.sock.cipher()}")
+
+    async def on_connection_error_retry(self, error_msg, attempt, max_retries, base_wait, error):
+        """Handles connection errors with exponential backoff retry timing."""
+        self.logger.error(error_msg)
+        await self.reset_connection()
+
+        if attempt > max_retries:
+            self.logger.error("Max retries reached. Could not establish a connection.")
+            raise error
+
+        wait_time = base_wait * (6 ** (attempt - 1))  # 10s, 60s, 380s
+        jitter = random.uniform(0, 0.1 * wait_time)  # 10% jitter
+        total_wait = wait_time + jitter
+
+        self.logger.info(f"Retrying in {total_wait:.1f} seconds... (Attempt {attempt}/{max_retries})")
+        await asyncio.sleep(total_wait)
+
+    async def reset_connection(self):
+        """Closes connection and destroys the substrate object for fresh initialization."""
+        if self.substrate:
+            self.logger.info("Closing Websocket connection & resetting substrate object...")
+            self.substrate.close()
+            self.substrate = None
+
+    async def close(self):
+        """Temporarily closes the WebSocket connection while preserving the substrate object."""
+        if self.substrate:
+            self.logger.info("Closing WebSocket connection...")
+            self.substrate.close()
 
     @staticmethod
     def cache_older_than_24hrs(file_path):
@@ -62,165 +136,392 @@ class SubstrateAPI:
         except FileNotFoundError:
             return True
 
-    async def ongoing_referendums_idx(self):
-        substrate = None
-        try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            ongoing_referendas = [int(index.value) for index, info in substrate.query_map(module='Referenda', storage_function='ReferendumInfoFor', params=[]) if 'Ongoing' in info]
-            return ongoing_referendas
-        finally:
-            if substrate:
-                substrate.close()
-
-    async def referendumInfoFor(self, index=None):
+    # ----------------------
+    # Proxy call composing
+    # ----------------------
+    async def balance(self, ss58_address=None):
         """
-        Get information regarding a specific referendum or all ongoing referendums.
-
-        :param index: (optional) index of the specific referendum
-        :return: dictionary containing the information of the specific referendum or a dictionary of all ongoing referendums
-        :raises: ValueError if `index` is not None and not a valid index of any referendum
-        """
-        referendum = {}
-        substrate = None
-        try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            if index is not None:
-                return substrate.query(
-                    module='Referenda',
-                    storage_function='ReferendumInfoFor',
-                    params=[index]).serialize()
-            else:
-                qmap = substrate.query_map(
-                    module='Referenda',
-                    storage_function='ReferendumInfoFor',
-                    params=[])
-                for index, info in qmap:
-                    if 'Ongoing' in info:
-                        referendum.update({int(index.value): info.value})
-
-                sort = json.dumps(referendum, sort_keys=True)
-                data = json.loads(sort)
-                return data
-
-        finally:
-            if substrate:
-                substrate.close()
-
-    async def check_ss58_address(self, address) -> bool:
-        substrate = None
-        try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            if not isinstance(address, str):
-                return False
-            try:
-                if substrate.is_valid_ss58_address(value=address):
-                    return True
-                else:
-                    return False
-            except (SubstrateRequestException, ValueError):
-                return False
-
-        finally:
-            if substrate:
-                substrate.close()
-
-    async def referendum_call_data(self, index: int, gov1: bool, call_data: bool):
-        """
-        Retrieves and decodes the referendum call data based on given parameters.
-
-        Args:
-            index (int): The index of the referendum to query.
-            gov1 (bool): Determines which module to query ('Democracy' if True, 'Referenda' if False).
-            call_data (bool): Determines the type of data to return (raw call data if True, decoded call data if False).
+        Query the free balance of the main address that the proxy controls if a ss58_address isn't provided.
 
         Returns:
-            tuple: A tuple containing a boolean indicating success or failure, and the decoded call data or error message.
-
-        Raises:
-            Exception: If an error occurs during the retrieval or decoding process.
+            int: The free balance of the main address.
         """
-        substrate = None
-
         try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            referendum = substrate.query(module="Democracy" if gov1 else "Referenda",
-                                              storage_function="ReferendumInfoOf" if gov1 else "ReferendumInfoFor",
-                                              params=[index]).serialize()
+            await self.connect(self.config.SUBSTRATE_WSS)
 
-            if referendum is None or 'Ongoing' not in referendum:
-                return False, f":warning: Referendum **#{index}** is inactive"
+            # When no ss58_address is provided, use self.main_address (the account controlled by the proxy)
+            if not ss58_address:
+                # When VOTE_WITH_BALANCE is set to 0, the bot will vote with the entire balance
+                # controlled by the governance proxy.
+                if self.config.VOTE_WITH_BALANCE != 0:
+                    return self.config.VOTE_WITH_BALANCE * (10 ** self.substrate.token_decimals)
 
-            preimage = referendum['Ongoing']['proposal']
+                # Query the balance for the main address
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.query,
+                        'System',
+                        'Account',
+                        [self.config.PROXIED_ADDRESS]
+                    ),
+                    timeout=60  # Apply a timeout
+                )
+            else:
+                # Query the balance for the provided ss58_address
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.query,
+                        'System',
+                        'Account',
+                        [ss58_address]
+                    ),
+                    timeout=60
+                )
 
-            if 'Inline' in preimage:
-                call = preimage['Inline']
-                if not call_data:
-                    call_obj = substrate.create_scale_object('Call')
-                    decoded_call = call_obj.decode(ScaleBytes(call))
-                    return decoded_call, preimage
+            # Return the free balance
+            return result.value['data']['free']
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching balance.")
+            return None
+
+        except SubstrateRequestException as e:
+            self.logger.error(f"Failed to query balance: {e}")
+            return None
+
+        except Exception as e:
+            self.logger.error(f"Unexpected error while fetching balance: {e}")
+            return None
+
+    async def proxy_balance(self):
+        try:
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            self.logger.info(f"Checking balance of proxy account: {self.config.PROXY_ADDRESS}")
+
+            # Fetch the balance using the same logic as the updated balance function
+            proxy_balance = await self.balance(ss58_address=self.config.PROXY_ADDRESS)
+
+            # Convert the balance to a float with the correct token decimal scaling
+            proxy_balance = proxy_balance / float(self.config.TOKEN_DECIMAL)
+
+            # Ensure that the returned balance is a float
+            if isinstance(proxy_balance, float):
+                return proxy_balance
+            else:
+                raise ValueError("Balance is not a float")
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching proxy balance.")
+            raise
+
+        except Exception as error:
+            self.logger.error(f"Error fetching proxy balance: {error}")
+            raise
+
+    async def compose_democracy_vote_call(self, proposal_index, vote_type, conviction, ongoing_referendas):
+        """
+        Compose a democracy vote call.
+
+        NOTE: This will check if the index being passed is an Ongoing referendum.
+        If it's not; the call will not be composed.
+
+        Args:
+            proposal_index (int): The index of the proposal to vote on.
+            vote_type (str): The type of the vote ('Aye' or 'Nay').
+            conviction (str): The conviction for the vote.
+
+        Returns:
+            dict: The composed call for democracy voting.
+        """
+        try:
+
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            # Prevent Failed（NotOngoing）- caused when voing on a referenda that is not ongoing.
+            # ongoing ref
+            if proposal_index not in ongoing_referendas:
+                self.logger.info(f"{proposal_index}# is not an ongoing referenda, skipping...")
+                return False
+
+            proxied_address_balance = await self.balance(ss58_address=self.config.PROXIED_ADDRESS) / self.substrate.token_decimals
+            proxy_address_balance = await self.balance()
+
+            if self.config.VOTE_WITH_BALANCE != 0 and proxied_address_balance < self.config.VOTE_WITH_BALANCE:
+                self.logger.warning(f"Balance of the proxied address: {self.config.PROXIED_ADDRESS} is low")
+                return False
+
+            if vote_type == 'aye':
+                return await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.compose_call,
+                        call_module="ConvictionVoting",
+                        call_function="vote",
+                        call_params={
+                            "poll_index": proposal_index,
+                            "vote": {
+                                "Standard": {
+                                    "balance": int(proxy_address_balance),
+                                    "vote": {
+                                        f"aye": True,
+                                        "conviction": conviction
+                                    }
+                                }
+                            }
+                        }
+                    ),
+                    timeout=60
+                )
+
+            if vote_type == 'nay':
+                return await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.compose_call,
+                        call_module="ConvictionVoting",
+                        call_function="vote",
+                        call_params={
+                            "poll_index": proposal_index,
+                            "vote": {
+                                "Standard": {
+                                    "balance": int(proxy_address_balance),
+                                    "vote": {
+                                        f"aye": False,
+                                        "conviction": conviction
+                                    }
+                                }
+                            }
+                        }
+                    ),
+                    timeout=60
+                )
+
+            if vote_type == 'abstain':
+                return await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.compose_call,
+                        call_module="ConvictionVoting",
+                        call_function="vote",
+                        call_params={
+                            "poll_index": proposal_index,
+                            "vote": {
+                                "SplitAbstain": {
+                                    f"{vote_type}": int(proxy_address_balance),
+                                    "aye": 0,
+                                    "nay": 0
+                                }
+                            }
+                        }
+                    ),
+                    timeout=60
+                )
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout error while composing democracy vote call.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error composing democracy vote call: {e}")
+            return None
+
+    async def compose_utility_batch_call(self, calls):
+        """
+        Compose a utility batch call.
+
+        Args:
+            calls (list): A list of calls to batch together.
+
+        Returns:
+            dict: The composed batch call.
+        """
+        try:
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            compose_utility_batch = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.compose_call,
+                    call_module="Utility",
+                    call_function="batch",
+                    call_params={"calls": calls}
+                ),
+                timeout=60
+            )
+            return compose_utility_batch
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout error while composing utility batch call.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error composing utility batch call: {e}")
+            return None
+
+    async def compose_proxy_call(self, batch_call):
+        """
+        Compose a proxy call.
+
+        Args:
+            batch_call (dict): The batch call to proxy.
+
+        Returns:
+            GenericCall: The composed proxy call.
+        """
+        try:
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            compose_proxy_call = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.compose_call,
+                    call_module='Proxy',
+                    call_function='proxy',
+                    call_params={
+                        'real': f'0x{self.substrate.ss58_decode(self.config.PROXIED_ADDRESS)}',
+                        'force_proxy_type': 'Governance',
+                        'call': batch_call
+                    }
+                ),
+                timeout=60
+            )
+            return compose_proxy_call
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout error while composing proxy call.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error composing proxy call: {e}")
+            return None
+
+    async def execute_calls(self, calls):
+        """
+        Execute a batch of calls.
+
+        Args:
+            calls (list): A list of calls to execute.
+        """
+        try:
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            self.logger.info("Attempting to execute batch of calls.")
+            batch_call = await self.compose_utility_batch_call(calls)
+            self.logger.info("Utility_batch_call complete")
+            proxy_call = await self.compose_proxy_call(batch_call)
+            self.logger.info("Proxy call complete")
+            extrinsic = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.create_signed_extrinsic,
+                    call=proxy_call,
+                    keypair=Keypair.create_from_mnemonic(self.config.MNEMONIC)
+                ),
+                timeout=60
+            )
+
+            self.logger.info("Signed extrinsic created")
+
+            result = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.submit_extrinsic,
+                    extrinsic,
+                    wait_for_inclusion=True
+                ),
+                timeout=60
+            )
+
+            if result.is_success:
+                return result['extrinsic_hash']
+            else:
+                return False
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout error while executing call.")
+            raise
+        except Exception as e:
+            self.logger.exception(f"Failed to send extrinsic: {e}")
+
+    async def execute_multiple_votes(self, votes):
+        """
+        Execute multiple democracy votes.
+
+        Args:
+            votes (list): A list of tuples, each containing proposal index, vote type, and conviction.
+        """
+        try:
+            vote_calls = []
+            indexes = []
+
+            ongoing_referendas = await self.ongoing_referendums_idx()
+
+            for i, (index, vote_type, conviction) in enumerate(votes):
+                if vote_type not in ['aye', 'nay', 'abstain']:
+                    self.logger.error(f"Incorrect vote_type at index {index}: {vote_type}")
+                    continue
+
+                democracy_call = await self.compose_democracy_vote_call(index, vote_type, conviction,
+                                                                        ongoing_referendas)
+                if democracy_call:
+                    vote_calls.append(democracy_call)
+                    indexes.append(str(index))
+                    await asyncio.sleep(0.5)
                 else:
-                    return call
+                    continue
 
-            if 'Lookup' in preimage:
-                preimage_hash = preimage['Lookup']['hash']
-                preimage_length = preimage['Lookup']['len']
-                call = substrate.query(module='Preimage', storage_function='PreimageFor', params=[(preimage_hash, preimage_length)]).value
+            if len(vote_calls) > 0:
+                self.logger.info("Trying to execute call, please wait...")
 
-                if call is None:
-                    return False, ":warning: Preimage not found on chain"
+                extrinsic = await self.execute_calls(vote_calls)
 
-                if not call.isprintable():
-                    call = f"0x{''.join(f'{ord(c):02x}' for c in call)}"
-
-                if not call_data:
-                    call_obj = substrate.create_scale_object('Call')
-                    decoded_call = call_obj.decode(ScaleBytes(call))
-                    return decoded_call, preimage_hash
+                if extrinsic:
+                    self.logger.info(f"An on-chain vote has been cast: {extrinsic}")
+                    return indexes, vote_calls, extrinsic
                 else:
-                    return call
-        except Exception as ref_caller_error:
-            raise ref_caller_error
+                    self.logger.error("vote(s) were not successful")
+            else:
+                self.logger.warning("vote_calls variable was empty, no vote(s) casted.")
+                return False, False, False
+        except SubstrateRequestException as e:
+            self.logger.exception(f"Failed to execute multiple votes: {e}")
 
-        finally:
-            if substrate:
-                substrate.close()
-
-    """
-    Cache Super_of
-    """
-
+    # ----------------------
+    # Cache super_of
+    # ----------------------
     async def cache_super_of(self, network):
         """
         :param network::
         :return: The super-identity of an alternative 'sub' identity together with its name, within that
         """
-        substrate = None
-
         try:
             if not self.config.PEOPLE_WSS:
-                substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
+                await self.connect(wss=self.config.SUBSTRATE_WSS)
 
             if self.config.PEOPLE_WSS:
-                substrate = await self._connect(wss=self.config.PEOPLE_WSS)
+                await self.reset_connection()  # disconnect before connecting to switch from SUBSTRATE_WSS to PEOPLE_WSS
+                await self.connect(wss=self.config.PEOPLE_WSS)
+
+            result = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query_map,
+                    module='Identity',
+                    storage_function='SuperOf',
+                    params=[]
+                ),
+                timeout=60
+            )
 
             result_tmp = {}
-            result = substrate.query_map(
-                module='Identity',
-                storage_function='SuperOf',
-                params=[])
-            substrate.close()
-
             for key, values in result:
                 result_tmp.update({key.value: values.value})
 
             with open(f'../data/off-chain-querying/{network}-superof.json', 'w') as superof:
                 json.dump(result_tmp, indent=4, fp=superof)
 
-        except Exception as error:
-            self.logger.error(f"An error occurred whilst executing cache_identities: {error}")
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching identities super_of.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching identities super_of: {e}")
+            raise
         finally:
-            if substrate:
-                substrate.close()
+            await self.reset_connection()  # Disconnect from people chain
 
     @staticmethod
     async def check_cached_super_of(address, network):
@@ -245,10 +546,9 @@ class SubstrateAPI:
         else:
             return 0
 
-    """
-    Cache identityOf
-    """
-
+    # ----------------------
+    # Cache identityOf
+    # ----------------------
     async def cache_identities(self, network):
         """
         Fetches identities from the 'Identity' module using the 'IdentityOf' storage function,
@@ -265,34 +565,40 @@ class SubstrateAPI:
             IOError: If the function cannot write to 'identity.json'.
             JSONDecodeError: If the function cannot serialize the dictionary to JSON.
         """
-        substrate = None
-
         try:
             if not self.config.PEOPLE_WSS:
-                substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
+                await self.connect(wss=self.config.SUBSTRATE_WSS)
 
             if self.config.PEOPLE_WSS:
-                substrate = await self._connect(wss=self.config.PEOPLE_WSS)
+                await self.reset_connection()  # Disconnect before connecting to switch from SUBSTRATE_WSS to PEOPLE_WSS
+                await self.connect(wss=self.config.PEOPLE_WSS)
+
+            result = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query_map,
+                    module='Identity',
+                    storage_function='IdentityOf',
+                    params=[]
+                ),
+                timeout=60
+            )
 
             result_tmp = {}
-            result = substrate.query_map(
-                module='Identity',
-                storage_function='IdentityOf',
-                params=[]
-            )
-            substrate.close()
-
             for key, values in result:
                 result_tmp.update({key.value: values.value})
 
             with open(f'../data/off-chain-querying/{network}-identity.json', 'w') as identityof:
                 json.dump(result_tmp, indent=4, fp=identityof)
 
-        except Exception as error:
-            self.logger.error(f"An error occurred whilst executing cache_identities: {error}")
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching identities.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching identities: {e}")
+            raise
         finally:
-            if substrate:
-                substrate.close()
+            await self.reset_connection()  # Disconnect from people chain
 
     @staticmethod
     async def check_cached_identity(address, network):
@@ -327,8 +633,13 @@ class SubstrateAPI:
             display = result[0]['info']['display']
             twitter = result[0]['info']['twitter']
 
-        display_name = display.get('Raw', '')  # Get the 'Raw' value from display, default to empty string if not present
-        twitter_name = twitter.get('Raw', '')  # Get the 'Raw' value from twitter, default to empty string if not present
+        # Get the 'Raw' value from display, default to empty string if not present
+        display_name = display.get('Raw', '')
+
+        # Get the 'Raw' value from twitter, default to empty string if not present
+        twitter_name = \
+            twitter.get('Raw', '').replace("https://", "").replace("http://", "").replace("www.", "").split('/')[-1]
+        twitter_name = f"@{twitter_name}" if not twitter_name.startswith('@') else twitter_name
 
         if display_name and twitter_name:
             return f"{display_name} / {twitter_name}"
@@ -339,33 +650,231 @@ class SubstrateAPI:
         else:
             return address
 
-    async def get_average_block_time(self, num_blocks=255):
-        substrate = None
+    # ----------------------
+    # Misc
+    # ----------------------
+    async def ongoing_referendums_idx(self):
         try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            latest_block_num = substrate.get_block_number(block_hash=substrate.block_hash)
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            qmap = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query_map,
+                    module='Referenda',
+                    storage_function='ReferendumInfoFor',
+                    params=[]
+                ),
+                timeout=60
+            )
+
+            ongoing_referendums = [int(index.value) for index, info in qmap if 'Ongoing' in info]
+            return ongoing_referendums
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching ongoing referendums.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching ongoing referendum indexes: {e}")
+            raise
+
+    async def referendumInfoFor(self, index=None):
+        """
+        Get information regarding a specific referendum or all ongoing referendums.
+
+        :param index: (optional) index of the specific referendum
+        :return: dictionary containing the information of the specific referendum or a dictionary of all ongoing referendums
+        :raises: ValueError if `index` is not None and not a valid index of any referendum
+        """
+        referendum = {}
+
+        try:
+            await self.connect(self.config.SUBSTRATE_WSS)
+
+            if index is not None:
+                result = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.query,
+                        module='Referenda',
+                        storage_function='ReferendumInfoFor',
+                        params=[index]
+                    ),
+                    timeout=60
+                )
+                return result.serialize()
+            else:
+                qmap = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.query_map,
+                        module='Referenda',
+                        storage_function='ReferendumInfoFor',
+                        params=[]
+                    ),
+                    timeout=60
+                )
+                for index, info in qmap:
+                    if 'Ongoing' in info:
+                        referendum.update({int(index.value): info.value})
+
+                sort = json.dumps(referendum, sort_keys=True)
+                data = json.loads(sort)
+                return data
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching referendum info.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching referendum info: {e}")
+            raise e
+
+    async def referendum_call_data(self, index: int, gov1: bool, call_data: bool):
+        """
+        Retrieves and decodes the referendum call data based on given parameters.
+
+        Args:
+            index (int): The index of the referendum to query.
+            gov1 (bool): Determines which module to query ('Democracy' if True, 'Referenda' if False).
+            call_data (bool): Determines the type of data to return (raw call data if True, decoded call data if False).
+
+        Returns:
+            tuple: A tuple containing a boolean indicating success or failure, and the decoded call data or error message.
+
+        Raises:
+            Exception: If an error occurs during the retrieval or decoding process.
+        """
+        try:
+            await self.connect(wss=self.config.SUBSTRATE_WSS)
+
+            referendum = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query,
+                    module="Democracy" if gov1 else "Referenda",
+                    storage_function="ReferendumInfoOf" if gov1 else "ReferendumInfoFor",
+                    params=[index]
+                ),
+                timeout=60
+            )
+
+            referendum = referendum.serialize()
+
+            if referendum is None or 'Ongoing' not in referendum:
+                return False, f":warning: Referendum **#{index}** is inactive"
+
+            preimage = referendum['Ongoing']['proposal']
+
+            if 'Inline' in preimage:
+                call = preimage['Inline']
+                if not call_data:
+                    decoded_call = await asyncio.wait_for(
+                        asyncio.to_thread(self.substrate.create_scale_object('Call').decode, ScaleBytes(call)),
+                        timeout=60
+                    )
+                    return decoded_call, preimage
+                else:
+                    return call
+
+            if 'Lookup' in preimage:
+                preimage_hash = preimage['Lookup']['hash']
+                preimage_length = preimage['Lookup']['len']
+                call = await asyncio.wait_for(
+                    asyncio.to_thread(
+                        self.substrate.query,
+                        module='Preimage',
+                        storage_function='PreimageFor',
+                        params=[(preimage_hash, preimage_length)]
+                    ),
+                    timeout=60
+                )
+
+                call = call.value
+
+                if call is None:
+                    return False, ":warning: Preimage not found on chain"
+
+                if not call.isprintable():
+                    call = f"0x{''.join(f'{ord(c):02x}' for c in call)}"
+
+                if not call_data:
+                    decoded_call = await asyncio.wait_for(
+                        asyncio.to_thread(self.substrate.create_scale_object('Call').decode, ScaleBytes(call)),
+                        timeout=60
+                    )
+                    return decoded_call, preimage_hash
+                else:
+                    return call
+
+        except asyncio.TimeoutError:
+            self.logger.error(f"Timeout while fetching referendum call data for index: {index}")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching referendum call data: {e}")
+            return False, ":warning: Unable to decode call"
+
+    async def check_ss58_address(self, address) -> bool:
+        try:
+            await self.connect(wss=self.config.SUBSTRATE_WSS)
+
+            if not isinstance(address, str):
+                return False
+            try:
+                if self.substrate.is_valid_ss58_address(value=address):
+                    return True
+                else:
+                    return False
+            except (SubstrateRequestException, ValueError):
+                return False
+
+        except Exception as e:
+            self.logger.error(f"Error checking ss58 address: {e}")
+            raise e
+
+    async def get_average_block_time(self, num_blocks=255):
+        try:
+            await self.connect(wss=self.config.SUBSTRATE_WSS)
+
+            latest_block_num = await asyncio.wait_for(
+                asyncio.to_thread(self.substrate.get_block_number, block_hash=self.substrate.block_hash),
+                timeout=60
+            )
+
             first_block_num = latest_block_num - num_blocks
 
-            first_timestamp = substrate.query(
-                module='Timestamp',
-                storage_function='Now',
-                block_hash=substrate.get_block_hash(first_block_num)
-            ).value
+            first_timestamp = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query,
+                    module='Timestamp',
+                    storage_function='Now',
+                    block_hash=self.substrate.get_block_hash(first_block_num)
+                ),
+                timeout=60
+            )
 
-            last_timestamp = substrate.query(
-                module='Timestamp',
-                storage_function='Now',
-                block_hash=substrate.get_block_hash(latest_block_num)
-            ).value
+            last_timestamp = await asyncio.wait_for(
+                asyncio.to_thread(
+                    self.substrate.query,
+                    module='Timestamp',
+                    storage_function='Now',
+                    block_hash=self.substrate.get_block_hash(latest_block_num)
+                ),
+                timeout=60
+            )
 
-            return (last_timestamp - first_timestamp) / (num_blocks * 1000)
-        finally:
-            if substrate:
-                substrate.close()
+            # Calculate average block time
+            return (last_timestamp.value - first_timestamp.value) / (num_blocks * 1000)
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching block data for average block time.")
+            raise
+
+        except Exception as e:
+            self.logger.error(f"Error fetching average block time: {e}")
+            raise
 
     async def time_until_block(self, target_block: int) -> int:
         """
-        Calculate the estimated time in minutes until the specified target block is reached on the Kusama network.
+        Calculate the estimated time in minutes until the specified target block is reached on the substrate network.
 
         Args:
             target_block (int): The target block number for which the remaining time needs to be calculated.
@@ -377,12 +886,11 @@ class SubstrateAPI:
         Raises:
             Exception: If any error occurs while trying to calculate the time remaining until the target block.
         """
-        substrate = None
         try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
+            await self.connect(wss=self.config.SUBSTRATE_WSS)
 
             # Get the current block number
-            current_block = substrate.get_block_number(block_hash=substrate.block_hash)
+            current_block = self.substrate.get_block_number(block_hash=self.substrate.block_hash)
             if target_block <= current_block:
                 self.logger.info("The target block has already been reached.")
                 return False
@@ -390,7 +898,7 @@ class SubstrateAPI:
             # Calculate the difference in blocks
             block_difference = target_block - current_block
 
-            # Get the average block time (6 seconds for Kusama)
+            # Get the average block time
             avg_block_time = self.get_average_block_time()
 
             # Calculate the remaining time in seconds
@@ -401,24 +909,51 @@ class SubstrateAPI:
 
             return int(minutes)
 
-        except Exception as error:
-            self.logger.error(f"An error occurred while trying to calculate minute remaining until {target_block} is met... {error}")
-        finally:
-            if substrate:
-                substrate.close()
+        except Exception as e:
+            self.logger.error(f"Error fetching time_until_block: {e}")
+            raise e
 
-    async def get_block_epoch(self, block_number):
-        substrate = None
+    async def get_block_epoch(self, block_number: int, use_relay: bool = True) -> int:
+        """
+        Retrieves the timestamp (epoch) of a specific block.
+
+        Args:
+            block_number (int): The block number for which the epoch (timestamp) is to be retrieved.
+
+        Returns:
+            int: The timestamp (epoch) of the specified block in milliseconds.
+
+        Raises:
+            asyncio.TimeoutError: If the operation exceeds the specified timeout limit.
+            Exception: If an error occurs while fetching the block hash or timestamp.
+        """
         try:
-            substrate = await self._connect(wss=self.config.SUBSTRATE_WSS)
-            blockhash = substrate.get_block_hash(block_id=block_number)
-            epoch = substrate.query(
-                module='Timestamp',
-                storage_function='Now',
-                block_hash=blockhash
+            if use_relay:
+                await self.connect_relay_chain()
+                connection = self.relay_chain
+            else:
+                await self.connect(self.config.SUBSTRATE_WSS)
+                connection = self.substrate
+
+            block_hash = await asyncio.wait_for(
+                asyncio.to_thread(connection.get_block_hash, block_id=block_number),
+                timeout=60
             )
 
+            epoch = await asyncio.wait_for(
+                asyncio.to_thread(
+                    connection.query,
+                    module='Timestamp',
+                    storage_function='Now',
+                    block_hash=block_hash
+                ),
+                timeout=60
+            )
             return epoch.value
-        finally:
-            if substrate:
-                substrate.close()
+
+        except asyncio.TimeoutError:
+            self.logger.error("Timeout while fetching block epoch.")
+            raise
+        except Exception as e:
+            self.logger.error(f"Error fetching block epoch: {e}")
+            raise

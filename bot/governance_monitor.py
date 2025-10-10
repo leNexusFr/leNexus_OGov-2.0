@@ -1,20 +1,22 @@
 import re
+import sys
 import time
 import json
 import asyncio
-import discord
-import requests
 import aiofiles
-from typing import Dict, Any
+import discord
 from discord import app_commands, Embed
+import requests
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
+from typing import Dict, Any
 from utils.logger import Logger
 from utils.config import Config
-from utils.proxy import ProxyVoter
 from utils.data_processing import Text
 from utils.button_handler import ButtonHandler, ExternalLinkButton
 from aiohttp.web_exceptions import HTTPException
 from datetime import datetime, timezone
-import sys
+from math import ceil
 
 
 class GovernanceMonitor(discord.Client):
@@ -34,30 +36,42 @@ class GovernanceMonitor(discord.Client):
         self.tree.copy_global_to(guild=self.guild)
         await self.tree.sync(guild=self.guild)
 
-    def get_asset_price_v2(self, asset_id, currencies='usd'):
+    async def get_asset_price_v2(self, asset_id, currencies='usd'):
         """
         Fetches the price of an asset in the specified currencies from the CoinGecko API.
 
         Args:
             asset_id (str): The ID of the asset for which to fetch the price (e.g., "bitcoin").
             currencies (str, optional): A comma-separated string of currency symbols
-                                         (default is 'usd,gbp,eur').
+                                         (default is 'usd').
 
         Returns:
             dict: A dictionary containing the prices in the specified currencies, or None
                   if an error occurred or the asset ID was not found.
         """
         url = f"https://api.coingecko.com/api/v3/simple/price?ids={asset_id}&vs_currencies={currencies}"
+        self.logger.info("Fetching price from CoinGecko")
+        retry_strategy = Retry(  # Retry strategy
+            total=3,             # Retry up to 3 times
+            backoff_factor=3,    # Wait 3 second between retries
+            raise_on_status=False,
+        )
+
+        adapter = HTTPAdapter(max_retries=retry_strategy)
+        http = requests.Session()
+        http.mount("https://", adapter)
 
         try:
-            response = requests.get(url)
+            response = http.get(url)
             response.raise_for_status()
         except requests.exceptions.HTTPError as e:
-            self.logger.error(f"An HTTP error occurred: {e}")
+            self.logger.error(f"A HTTP error occurred: {e}")
             return 0
         except requests.exceptions.RequestException as e:
             self.logger.error(f"A request error occurred: {e}")
             return 0
+        except Exception as e:
+            self.logger.error(f"An error occurred whilst fetching the price from Coingecko: {e}")
 
         data = response.json()
 
@@ -65,7 +79,9 @@ class GovernanceMonitor(discord.Client):
             self.logger.warning(f"Asset ID '{asset_id}' not found in CoinGecko.")
             return 0
 
-        return data[asset_id]['usd']
+        price = data[asset_id].get('usd', 0)
+        self.logger.info(f"Price for '{asset_id}' is ${price}")
+        return price
 
     async def check_permissions(self, interaction, required_role, user_id, user_roles):
         self.logger.info(f"Checking {interaction.user.name} has the appropriate permissions")
@@ -78,17 +94,12 @@ class GovernanceMonitor(discord.Client):
             await interaction_message.delete()
             return False
         elif any(role.name == required_role for role in user_roles):
-            self.logger.info(f"TRUE")
+            self.logger.info(f"User has sufficient access")
             return True
 
-    async def check_balance(self, interaction):
-        self.logger.info(f"Checking wallet balance of {self.config.PROXIED_ADDRESS}")
-        voter = ProxyVoter(main_address=self.config.PROXIED_ADDRESS, proxy_mnemonic=self.config.MNEMONIC, url=self.config.SUBSTRATE_WSS)
-        proxy_balance = await voter.proxy_balance()
-
+    async def check_balance(self, proxy_balance, interaction=None):
         if proxy_balance <= self.config.PROXY_BALANCE_ALERT:
-            self.logger.warning(f"Wallet balance is too low: {proxy_balance}")
-
+            self.logger.warning(f"Balance is too low: {proxy_balance}, PROXY_BALANCE_ALERT={self.config.PROXY_BALANCE_ALERT}")
             # Post on discord with balance and public address to make it easier to top up
             proxy_address_qr = Text.generate_qr_code(publickey=self.config.PROXY_ADDRESS)
             balance_embed = Embed(color=0xFF0000, title=f'Low balance detected',
@@ -96,9 +107,14 @@ class GovernanceMonitor(discord.Client):
                                   timestamp=datetime.now(timezone.utc))
             balance_embed.add_field(name='Address', value=f'{self.config.PROXY_ADDRESS}', inline=True)
             balance_embed.set_thumbnail(url="attachment://proxy_address_qr.png")
-            await interaction.followup.send(embed=balance_embed, file=discord.File(proxy_address_qr, "proxy_address_qr.png"))
-
-            return False
+            if interaction:
+                await interaction.followup.send(embed=balance_embed, file=discord.File(proxy_address_qr, "proxy_address_qr.png"))
+                return False
+            else:
+                admin_role = await self.create_or_get_role(self.get_guild(self.config.DISCORD_SERVER_ID), self.config.DISCORD_ADMIN_ROLE)
+                alert_channel = self.get_channel(self.config.DISCORD_PROXY_BALANCE_ALERT)
+                await alert_channel.send(content=f"<@&{admin_role.id}>", embed=balance_embed, file=discord.File(proxy_address_qr, "proxy_address_qr.png"))
+                return False
         return True
 
     @staticmethod
@@ -143,8 +159,7 @@ class GovernanceMonitor(discord.Client):
 
         return items_with_title_none
 
-    @staticmethod
-    def calculate_vote_result(aye_votes: int, nay_votes: int, threshold: float = 0.66) -> str:
+    def calculate_vote_result(self, aye_votes: int, nay_votes: int, threshold: float = 0.66) -> str:
         """
         Calculate and return the result of a vote based on the numbers of 'aye', 'nay' votes,
         and a specified threshold.
@@ -173,6 +188,9 @@ class GovernanceMonitor(discord.Client):
         """
         total_votes = aye_votes + nay_votes
 
+        if self.config.THRESHOLD > 0:
+            threshold = self.config.THRESHOLD
+
         # Handle the edge case where total_votes is zero
         if total_votes == 0:
             return "No on-chain votes have been casted."
@@ -190,9 +208,43 @@ class GovernanceMonitor(discord.Client):
 
     @staticmethod
     def check_minimum_participation(total_members, total_vote_count, min_participation):
+        """
+        Check if the vote meets minimum participation requirements using ceiling for quorum.
+
+        Args:
+            total_members (int): Total number of members with voting rights
+            total_vote_count (int): Number of members who have voted
+            min_participation (float): Required participation percentage (e.g., 15 for 15%)
+
+        str: JSON string containing:
+            {
+                "meets_minimum": bool,
+                "total_members": int,
+                "total_vote_count": int,
+                "min_participation_required": float,
+                "min_required_voters": int,
+                "actual_participation_percentage": float
+            }
+        """
+        # Calculate minimum required voters using ceiling
+        min_required_voters = ceil(total_members * (min_participation / 100))
+
+        # Calculate actual participation percentage
         participation_percentage = (total_vote_count / total_members) * 100
-        meets_minimum = participation_percentage >= min_participation
-        return meets_minimum, participation_percentage
+
+        # Check if we meet the minimum
+        meets_minimum = total_vote_count >= min_required_voters
+
+        result = {
+            "meets_minimum": meets_minimum,
+            "total_members": total_members,
+            "total_vote_count": total_vote_count,
+            "min_participation_required": min_participation,
+            "min_required_voters": min_required_voters,
+            "actual_participation_percentage": round(participation_percentage, 2)
+        }
+
+        return result
 
     @staticmethod
     async def load_vote_counts():
@@ -213,10 +265,11 @@ class GovernanceMonitor(discord.Client):
             return {}
 
     @staticmethod
-    def load_governance_cache():
+    async def load_governance_cache():
         try:
-            with open("../data/governance.cache", "r") as file:
-                return json.load(file)
+            async with aiofiles.open("../data/governance.cache", "r") as file:
+                data = await file.read()
+                return json.loads(data)
         except FileNotFoundError:
             return {}
 
@@ -233,6 +286,13 @@ class GovernanceMonitor(discord.Client):
     async def save_vote_counts(self):
         async with aiofiles.open("../data/vote_counts.json", "w") as file:
             await file.write(json.dumps(self.vote_counts, indent=4))
+
+    @staticmethod
+    async def save_member_records(members):
+        member_data = [{"id": member.id, "username": member.name, "display name": member.display_name} for member in members]
+
+        async with aiofiles.open("../data/members.json", "w") as file:
+            await file.write(json.dumps(member_data, indent=4))
 
     async def set_buttons_lock_status(self, channel, message_ids, lock_status):
         self.logger.info(f"Setting buttons lock status to {lock_status} for channel ID {channel} and message IDs {message_ids}")
@@ -272,7 +332,6 @@ class GovernanceMonitor(discord.Client):
         None
 
         Note:
-
         - This function requires that a Discord client object named 'client' exists and is logged in.
         - The bot needs the 'Manage Threads' permission in the guild to be able to lock threads.
         - The function is asynchronous and must be called from within an async function or an event loop.
@@ -280,12 +339,8 @@ class GovernanceMonitor(discord.Client):
           error messages are logged but the function does not raise an exception.
 
         Example usage:
-
-        >>> await lock_threads_by_message_ids(123456789012345678, [111111111111111111, 222222222222222222])
-
-        or
-
-        >>> await lock_threads_by_message_ids(123456789012345678, 111111111111111111)
+        - await lock_threads_by_message_ids(123456789012345678, [111111111111111111, 222222222222222222])
+        - await lock_threads_by_message_ids(123456789012345678, 111111111111111111)
         """
         if not isinstance(message_ids, list):
             message_ids = [message_ids]
@@ -310,6 +365,60 @@ class GovernanceMonitor(discord.Client):
             # Lock the thread
             self.logger.info(f"Discord forum thread '{thread.name}' is >= threshold set in config, locking thread from future interactions.")
             await thread.edit(locked=True)
+
+    async def disable_command(self, command_name: str, guild_id: int):
+        """
+        Disables a command for a specific guild by removing it from the command tree and syncing it.
+
+        Args:
+            command_name (str): The name of the command to be disabled.
+            guild_id (int): The ID of the guild where the command will be disabled.
+
+        Behavior:
+            - Retrieves the command from the command tree for the specified guild.
+            - If the command exists, it is removed from the command tree.
+            - The command tree is then synced to apply the changes.
+            - Logs a message indicating whether the command was successfully disabled or not found.
+
+        Example:
+            await self.disable_command("forcevote", config.DISCORD_SERVER_ID)
+        """
+        command = self.tree.get_command(command_name, guild=discord.Object(id=guild_id))
+
+        try:
+            if command:
+                self.tree.remove_command(command.name, guild=discord.Object(id=guild_id))
+                await self.tree.sync(guild=discord.Object(id=guild_id))
+                self.logger.info(f"Command '{command_name}' has been disabled.")
+            else:
+                self.logger.warning(f"Command '{command_name}' not found or already disabled.")
+        except Exception as e:
+            self.logger.info(f"Failed to enable the command '{command_name}': {e}")
+
+    # Function to enable a command
+    async def enable_command(self, command, guild_id: int):
+        """
+        Enables a command for a specific guild by adding it to the command tree and syncing it.
+
+        Args:
+            command (discord.app_commands.Command): The command to be enabled.
+            guild_id (int): The ID of the guild where the command will be enabled.
+
+        Behavior:
+            - Adds the command to the command tree for the specified guild.
+            - Syncs the command tree to apply the changes.
+            - Logs success or failure.
+
+        Example:
+            await self.enable_command(forcevote, config.DISCORD_SERVER_ID)
+        """
+
+        try:
+            self.tree.add_command(command, guild=discord.Object(id=guild_id))
+            await self.tree.sync(guild=discord.Object(id=guild_id))
+            self.logger.info(f"Command '{command.name}' has been enabled.")
+        except Exception as e:
+            self.logger.info(f"Failed to enable the command '{command.name}': {e}")
 
     async def edit_thread(self, forum_channel: int, message_id: int, name: str, content: str) -> bool:
         """
@@ -445,14 +554,14 @@ class GovernanceMonitor(discord.Client):
                 # Update the results message
                 thread = await self.fetch_channel(interaction.channel_id)
                 async for message in thread.history(oldest_first=True):
-                    if message.author == self.user and message.content.startswith("👍 AYE:"):
+                    if message.author == self.user and message.content.startswith("👍 AYE:") or message.content.startswith("View proposal details using the links below."):
                         results_message = message
                         break
                 else:
                     results_message = await thread.send("👍 AYE: 0    |    👎 NAY: 0    |    ☯ RECUSE: 0")
 
                 proposal_index = self.vote_counts[message_id]['index']
-                external_links = ExternalLinkButton(proposal_index, self.config.NETWORK_NAME)
+                external_links = ExternalLinkButton(proposal_index, self.config.NETWORK_NAME, self.config.EXPLORER_URL)
 
                 new_results_message = f"👍 AYE: {self.vote_counts[message_id]['aye']}    |    👎 NAY: {self.vote_counts[message_id]['nay']}    |    ☯ RECUSE: {self.vote_counts[message_id]['recuse']}\n" \
                                       f"{self.calculate_vote_result(aye_votes=self.vote_counts[message_id]['aye'], nay_votes=self.vote_counts[message_id]['nay'])}"
@@ -508,12 +617,11 @@ class GovernanceMonitor(discord.Client):
                     name=thread_title,
                     content=thread_content
                 )
-                self.logger.info(f"Title updated from None -> {title} in vote_counts.json")
-                self.logger.info("Discord thread successfully amended")
             else:
                 self.logger.error(f"Invalid operation or missing parameters for {operation}")
         except Exception as e:
             self.logger.error(f"Failed to manage Discord thread: {e}")
+            return False
         return thread
 
     async def get_or_create_governance_tag(self, available_channel_tags, governance_origin, channel):
@@ -532,21 +640,47 @@ class GovernanceMonitor(discord.Client):
 
         return governance_tag
 
-    async def total_member_contributors(self, guild, role_name):
+    async def get_voting_members(self, guild, role_name, save_records=False):
+        """
+        Fetch members with a specific role from a guild, optionally save their records,
+        and return both member IDs and count.
 
+        Args:
+            guild (int or discord.Guild): The guild ID or guild object to query.
+            role_name (str): The name of the role to fetch members from.
+            save_records (bool, optional): Whether to save member data to file. Defaults to False.
+
+        Returns:
+            tuple: A tuple containing:
+                - list: A list of member IDs who have the specified role.
+                - int: The number of members with the specified role.
+
+        Note:
+            This function requires the bot to have the 'members' intent enabled.
+        """
         try:
             guild = self.get_guild(guild)
             existing_role = discord.utils.get(guild.roles, name=role_name)
-            total_members = guild.get_role(existing_role.id).members
 
-            if existing_role:
-                member_count = len(total_members)
-                return member_count
+            if not existing_role:
+                self.logger.error(f"Role '{role_name}' not found in guild {guild.id}")
+                return [], 0
+
+            members = guild.get_role(existing_role.id).members
+
+            if save_records:
+                await self.save_member_records(members=members)
+
+            member_ids = [member.id for member in members]
+            member_count = len(member_ids)
+
+            return member_ids, member_count
+
         except discord.Forbidden:
-            self.logger.error(f"Permission error: Unable to get total members from {role_name} in guild {guild.id}")
+            self.logger.error(f"Permission error: Unable to fetch members from {role_name} in guild {guild.id}")
             raise
         except discord.HTTPException as e:
-            self.logger.error(f"HTTP error while fetching total members from {role_name} in guild {guild.id}: {e}")
+            self.logger.error(f"HTTP error while fetching members from {role_name} in guild {guild.id}: {e}")
             raise
 
     async def create_or_get_role(self, guild, role_name):
@@ -567,6 +701,29 @@ class GovernanceMonitor(discord.Client):
         except discord.HTTPException as e:
             self.logger.error(f"HTTP error while creating role {role_name} in guild {guild.id}: {e}")
             raise  # You can raise the exception or return None based on your use case
+
+    @staticmethod
+    async def seconds_to_dhm(seconds):
+        """
+        Converts seconds into a formatted string showing days, hours and minutes.
+
+        Args:
+           seconds (int): Total number of seconds to convert
+
+        Returns:
+            tuple: Contains:
+                days (int): Number of complete days
+                hours (int): Remaining hours after days (0-23)
+                minutes (int): Remaining minutes after hours (0-59)
+                seconds (int): Remaining seconds after minutes (0-59)
+        """
+        days = seconds // (24 * 3600)
+        remaining_seconds = seconds % (24 * 3600)
+        hours = remaining_seconds // 3600
+        remaining_seconds = remaining_seconds % 3600
+        minutes = remaining_seconds // 60
+
+        return days, hours, minutes
 
     async def set_voting_button_lock_status(self, threads, lock: bool):
         if threads:
@@ -611,17 +768,20 @@ class GovernanceMonitor(discord.Client):
         except Exception as e:
             self.logger.error(f"An error occurred while locking threads: {str(e)}")
 
-    async def calculate_proxy_vote(self, aye_votes: int, nay_votes: int, threshold: float = 0.66) -> str:
+    async def calculate_proxy_vote(self, aye_votes: int, nay_votes: int, recuse_votes: int, threshold: float = 0.66) -> str:
         """ Calculate and return the result of a vote based on 'aye' and 'nay' counts. """
         total_votes = aye_votes + nay_votes
+
+        if self.config.THRESHOLD > 0:
+            threshold = self.config.THRESHOLD
 
         # Default to abstain if the turnout internally is <= config.MIN_PARTICIPATION
         # Set to 0 to turn off this feature
         if self.config.MIN_PARTICIPATION > 0:
-            total_members = await self.total_member_contributors(guild=self.config.DISCORD_SERVER_ID, role_name=self.config.DISCORD_VOTER_ROLE)
-            meets_minimum, participation_percentage = self.check_minimum_participation(total_members=total_members, total_vote_count=total_votes, min_participation=self.config.MIN_PARTICIPATION)
+            members_ids, total_members = await self.get_voting_members(guild=self.config.DISCORD_SERVER_ID, role_name=self.config.DISCORD_VOTER_ROLE)
+            participation = self.check_minimum_participation(total_members=total_members, total_vote_count=aye_votes + nay_votes + recuse_votes, min_participation=self.config.MIN_PARTICIPATION)
 
-            if not meets_minimum:
+            if not participation['meets_minimum']:
                 self.logger.warning("Participation too low, defaulting to Abstain")
                 return "abstain"
 
@@ -638,33 +798,54 @@ class GovernanceMonitor(discord.Client):
         else:
             return "abstain"
 
-    async def determine_vote_action(self, vote_data: Dict[str, Any], origin: Dict[str, Any], proposal_epoch: int):
+    async def determine_vote_action(self, thread_id: int, vote_data: Dict[str, Any], origin: Dict[str, Any], proposal_epoch: int):
         """ Determine the appropriate vote action based on elapsed time since epoch and role periods. """
         SECONDS_IN_A_DAY = 86400
         current_time = int(time.time())
 
-        elapsed_time = int(current_time - (proposal_epoch / 1000))
+        proposal_elapsed_time = int(current_time - (proposal_epoch / 1000))
 
         decision_period_seconds = origin["decision_period"] * SECONDS_IN_A_DAY
-        internal_vote_period = origin["internal_vote_period"] * SECONDS_IN_A_DAY
-        revote_period = origin["revote_period"] * SECONDS_IN_A_DAY
+        cast_1st_vote = origin["internal_vote_period"] * SECONDS_IN_A_DAY
+        cast_2nd_vote = origin["revote_period"] * SECONDS_IN_A_DAY
 
-        _1st_vote = elapsed_time >= internal_vote_period
-        _2nd_vote = elapsed_time >= revote_period
+        _1st_vote = proposal_elapsed_time >= cast_1st_vote
+        _2nd_vote = proposal_elapsed_time >= cast_2nd_vote
 
-        if elapsed_time >= decision_period_seconds:
+        if proposal_elapsed_time < cast_1st_vote and self.config.MIN_PARTICIPATION > 0 and not self.config.READ_ONLY:
+            members_ids, total_members = await self.get_voting_members(guild=self.config.DISCORD_SERVER_ID, role_name=self.config.DISCORD_VOTER_ROLE)
+            total_votes = vote_data['aye'] + vote_data['nay'] + vote_data['recuse']
+            participation = self.check_minimum_participation(total_members=total_members, total_vote_count=total_votes, min_participation=self.config.MIN_PARTICIPATION)
+            one_day_before_voting = (cast_1st_vote - proposal_elapsed_time) <= SECONDS_IN_A_DAY
+            if not participation['meets_minimum'] and one_day_before_voting:
+                minimum_required_voters = participation['min_required_voters']
+                voted_left_until_quorum = minimum_required_voters - total_votes
+                seconds_left_until = (cast_1st_vote - proposal_elapsed_time)
+                d, h, m = await self.seconds_to_dhm(seconds_left_until)
+
+                voter_role = await self.create_or_get_role(self.get_guild(self.config.DISCORD_SERVER_ID), self.config.DISCORD_VOTER_ROLE)
+                thread_channel = self.get_channel(self.config.DISCORD_FORUM_CHANNEL_ID).get_thread(int(thread_id))
+                await thread_channel.send(content=f":rotating_light: <@&{voter_role.id}> - Insufficient participation\n\n"
+                                                  f"We're falling short on participation - {participation['total_vote_count']} out of {total_members} members have voted so far\n\n"
+                                                  f"We need at least `{self.config.MIN_PARTICIPATION}%` participation to meet our minimum threshold, and right now we're only at: "
+                                                  f"`{participation['actual_participation_percentage']}%`\n"
+                                                  f"- {voted_left_until_quorum} or more votes needed\n\n"
+                                                  f":ballot_box: `{d}` **d** `{h}` **h** `{m}` **mins** left until the proposal is {origin['internal_vote_period']} days old. "
+                                                  f"`Abstain` will be cast if the participation continues to be insufficient.")
+
+        if proposal_elapsed_time >= decision_period_seconds:
             return 0, "Vote period has ended."
 
         if _1st_vote and not _2nd_vote:
-            vote = await self.calculate_proxy_vote(aye_votes=vote_data['aye'], nay_votes=vote_data['nay'])
+            vote = await self.calculate_proxy_vote(aye_votes=vote_data['aye'], nay_votes=vote_data['nay'], recuse_votes=vote_data['recuse'])
             return 1, vote
 
         if _1st_vote and _2nd_vote:
-            vote = await self.calculate_proxy_vote(aye_votes=vote_data['aye'], nay_votes=vote_data['nay'])
+            vote = await self.calculate_proxy_vote(aye_votes=vote_data['aye'], nay_votes=vote_data['nay'], recuse_votes=vote_data['recuse'])
             return 2, vote
 
         if not _1st_vote:
-            return 99, f"Waiting for 1st vote conditions to be met. is {elapsed_time} > {internal_vote_period}?"
+            return 99, f"Waiting for 1st vote conditions to be met. is {proposal_elapsed_time} > {cast_1st_vote}?"
 
     async def on_error(self, event, *args, **kwargs):
         exc = sys.exc_info()

@@ -1,14 +1,10 @@
 version: '3.1'
 services:
-
   db_kusama:
     image: postgres
     restart: always
-    environment:
-      POSTGRES_DB: ${DB_NAME}
-      POSTGRES_USER: ${DB_USER}
-      POSTGRES_PASSWORD: ${DB_PASSWORD}
-      POSTGRES_HOST_AUTH_METHOD: scram-sha-256
+    env_file:
+      - .env
     volumes:
       - kusama_postgres_data:/var/lib/postgresql/data
     ports:
@@ -22,46 +18,20 @@ services:
     container_name: kusama-opengov-container
     volumes:
       - ./vol:/app/data/
+      - ./assets:/app/assets
     restart: always
     dns:
       - 8.8.8.8
       - 8.8.4.4
     depends_on:
       - db_kusama
-    environment:
-      DISCORD_API_KEY: ${DISCORD_API_KEY}  
-      DISCORD_SERVER_ID: ${DISCORD_SERVER_ID}
-      DISCORD_FORUM_CHANNEL_ID: ${DISCORD_FORUM_CHANNEL_ID}
-      DISCORD_SUMMARIZER_CHANNEL_ID: ${DISCORD_SUMMARIZER_CHANNEL_ID}
-      DISCORD_SUMMARY_ROLE: ${DISCORD_SUMMARY_ROLE}
-      DISCORD_VOTER_ROLE: ${DISCORD_VOTER_ROLE}
-      DISCORD_ADMIN_ROLE: ${DISCORD_ADMIN_ROLE}
-      DISCORD_TITLE_MAX_LENGTH: ${DISCORD_TITLE_MAX_LENGTH}
-      DISCORD_BODY_MAX_LENGTH: ${DISCORD_BODY_MAX_LENGTH}
-      DISCORD_NOTIFY_ROLE: ${DISCORD_NOTIFY_ROLE}
-      DISCORD_EXTRINSIC_ROLE: ${DISCORD_EXTRINSIC_ROLE}
-      DISCORD_ANONYMOUS_MODE: ${DISCORD_ANONYMOUS_MODE}
-      NETWORK_NAME: ${NETWORK_NAME}
-      SYMBOL: ${SYMBOL}
-      TOKEN_DECIMAL: ${TOKEN_DECIMAL}
-      SUBSTRATE_WSS: ${SUBSTRATE_WSS}
-      PEOPLE_WSS: ${PEOPLE_WSS}
-      SOLO_MODE: ${SOLO_MODE}
-      PROXIED_ADDRESS: ${PROXIED_ADDRESS}
-      PROXY_ADDRESS: ${PROXY_ADDRESS}
-      CONVICTION: ${CONVICTION}
-      DISCORD_PROXY_BALANCE_ALERT: ${DISCORD_PROXY_BALANCE_ALERT}
-      PROXY_BALANCE_ALERT: ${PROXY_BALANCE_ALERT}
-      MNEMONIC: ${MNEMONIC}
-      MIN_PARTICIPATION: ${MIN_PARTICIPATION}
-      VOTE_WITH_BALANCE: ${VOTE_WITH_BALANCE}
+    env_file:
+      - .env
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
 
 volumes:
   kusama_postgres_data:
-
-
-
-
-
-
-

@@ -1,15 +1,15 @@
-import json
+import re
+import asyncio
 import aiohttp
 import logging
-from utils.subquery import SubstrateAPI
 from utils.data_processing import CacheManager
 
 
 class OpenGovernance2:
-    def __init__(self, config):
+    def __init__(self, config, substrate=None):
         self.config = config
         self.util = CacheManager
-        self.substrate = SubstrateAPI(self.config)
+        self.substrate = substrate
 
 
     @staticmethod
@@ -39,7 +39,7 @@ class OpenGovernance2:
         """
         urls = [
             f"https://api.polkassembly.io/api/v1/posts/on-chain-post?postId={referendum_id}&proposalType=referendums_v2",
-            f"https://{network}.subsquare.io/api/gov2/referendums/{referendum_id}",
+            f"https://{network}-api.subsquare.io/gov2/referendums/{referendum_id}",
         ]
 
         headers = {"x-network": network}
@@ -49,7 +49,10 @@ class OpenGovernance2:
         async with aiohttp.ClientSession() as session:
             for url in urls:
                 try:
-                    async with session.get(url, headers=headers) as response:
+                    # Make the request separately and use async with for the response
+                    response = await asyncio.wait_for(session.get(url, headers=headers), timeout=60)
+
+                    async with response:
                         response.raise_for_status()
                         json_response = await response.json()
 
@@ -64,8 +67,11 @@ class OpenGovernance2:
                             # Once a successful response is found, no need to continue checking other URLs
                             break
 
+                except asyncio.TimeoutError:
+                    logging.error(f"Request to {url} timed out.")
                 except aiohttp.ClientResponseError as http_error:
                     logging.error(f"HTTP exception occurred while accessing {url}: {http_error}")
+                    logging.error(f"Retrying on {urls[1]}")
 
         if successful_response is None:
             return {"title": "None",
@@ -74,6 +80,7 @@ class OpenGovernance2:
         else:
             successful_response["successful_url"] = successful_url
             return successful_response
+
 
     async def check_referendums(self):
         """
@@ -88,25 +95,44 @@ class OpenGovernance2:
         Returns:
             str: The new referendums as a JSON string or False if there are no new referendums.
         """
-        new_referenda = {}
-        referendum_info = await self.substrate.referendumInfoFor()
+        new_referendums = {}
+        total_found = 0
 
-        results = self.util.get_cache_difference(filename='../data/governance.cache', data=referendum_info)
-        self.util.save_data_to_cache(filename='../data/governance.cache', data=referendum_info)
+        # Pattern to match only root['XXX'] where XXX is a number
+        pattern = re.compile(r"^root\['\d+'\]$")
 
-        if results:
-            for key, value in results.items():
-                if 'added' in key:
-                    for index in results['dictionary_item_added']:
-                        index = index.strip('root').replace("['", "").replace("']", "")
-                        onchain_info = referendum_info[index]['Ongoing']
-                        polkassembly_info = await self.fetch_referendum_data(referendum_id=index, network=self.config.NETWORK_NAME)
+        try:
+            referendum_info_for = await self.substrate.referendumInfoFor()
+            results = self.util.get_cache_difference(filename='../data/governance.cache', data=referendum_info_for)
 
-                        new_referenda.update({
-                            f"{index}": polkassembly_info
-                        })
+            if results and 'dictionary_item_added' in results:
+                # Filter using regex to only get new top-level referendums
+                new_referendum_paths = [
+                    item for item in results['dictionary_item_added']
+                    if pattern.match(item)
+                ]
 
-                        new_referenda[index]['onchain'] = onchain_info
+                for index_path in new_referendum_paths:
+                    total_found += 1
 
-            return new_referenda
-        return False
+                    # Extract just the number
+                    ref_id = re.search(r'\d+', index_path).group()
+                    logging.info(f"New referendum found: ID {ref_id}")
+
+                    onchain_info = referendum_info_for[ref_id]['Ongoing']
+                    governance_platform = await self.fetch_referendum_data(
+                        referendum_id=ref_id,
+                        network=self.config.NETWORK_NAME
+                    )
+
+                    new_referendums[ref_id] = governance_platform
+                    new_referendums[ref_id]['onchain'] = onchain_info
+
+                if total_found > 0:
+                    self.util.save_data_to_cache(filename='../data/governance.cache', data=referendum_info_for)
+
+            return new_referendums, referendum_info_for if total_found > 0 else (False, None)
+
+        except Exception as e:
+            logging.error(f"Error checking referendums: {e}")
+            return False, None
