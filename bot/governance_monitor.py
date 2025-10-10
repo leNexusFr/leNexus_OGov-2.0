@@ -29,12 +29,14 @@ class GovernanceMonitor(discord.Client):
         self.guild = guild
         self.permission_checker = permission_checker
         self.tree = app_commands.CommandTree(self)
-        loop = asyncio.get_event_loop()
-        self.vote_counts = loop.run_until_complete(self.load_vote_counts())
+        # Initialize vote_counts as empty dict, will be loaded in setup_hook
+        self.vote_counts = {}
 
     async def setup_hook(self):
         self.tree.copy_global_to(guild=self.guild)
         await self.tree.sync(guild=self.guild)
+        # Load vote_counts asynchronously
+        self.vote_counts = await self.load_vote_counts()
 
     async def get_asset_price_v2(self, asset_id, currencies='usd'):
         """
