@@ -2,3 +2,7 @@
 *.save
 vol/
 temp/*
+temp_update/
+test_environment/
+test_environment_old_backup/
+backups/
